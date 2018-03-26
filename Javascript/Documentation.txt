@@ -1,0 +1,185 @@
+// Start - Day 1
+
+Creating a variable
+// syntax
+var variableName = defaultValue;
+
+var a = 10;
+
+// Viewing the Values
+alert(a); -> displays 10 in alert box
+console.log(a); -> prints 10 to console
+
+var b;
+console.log(b) -> prints undefined
+
+var c = "Hello";
+
+// Example for boolean
+var d = true;
+
+// Ternary Operator
+var variableName = condition ? value1 : value2;
+if condition is true 
+	variableName = value1;
+else 
+	variableName = value2;
+	
+var e = a > b ? 30 : 40; 
+e value is 40
+
+1 + undefined => NaN
+1 - undefined => NaN
+1 / undefined => NaN
+1 * undefined => NaN
+
+Finding Types
+typeof(a) -> number
+typeof(b) -> undefined
+typeof(c) -> string
+
+Types
+	number
+	string
+	undefined
+	boolean
+	function
+	
+	
+Creating a function
+// Approach 1
+// Syntax
+function functionName() {
+
+}
+
+function welcome(){
+	console.log('Welcome to Demo');
+}
+
+// Executing a function
+// Syntax
+functionName();
+welcome();
+
+function addition(x, y) {
+	var z = x + y;
+	return z;
+}
+
+function subtraction(x, y){
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+subtraction(10, 2) => 8
+subtraction(5) => NaN => Not a number
+If parameter is not passed, it will be considered undefined
+subtraction(10, 2, 1) => 8
+additional parameters are ignored. 
+10 is copied to x
+2 is copied to y
+1 is ignored
+
+// Handling undefined in functions
+function subtraction(x, y){
+	x = x || 0;
+	y = y || 0;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+
+function multiplication(x, y){
+	x = x || 1;
+	y = y || 1;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x * y;
+	return z;
+}
+
+function division(x, y){
+	x = x || 0;
+	y = y || 1;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x / y;
+	return z;
+}
+
+// example of usage of return
+function process(terminate){
+	console.log('Started');
+	if(terminate) {
+		console.log('Terminated');
+		return;
+	}
+	console.log('End');
+}
+return is not only used to return values. 
+It can stop execution and return control.
+
+// Approach 2 for creating function
+// Syntax
+var functionName = function () {
+
+}
+
+var addition = function(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+}
+
+// Self Executing functions
+// Syntax
+(function functionName() {})();
+
+(function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})();
+
+passing values
+(function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})(10, 20);
+
+setting to variable
+var sum = (function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})(10, 20);
+
+lowerCase -> addperson
+upperCase -> ADDPERSON
+camelCase -> addPerson -> prefers for function Names
+variableCase -> AddPerson
+
+Object
+Arrays
+
+Class
+	Fields - Private, Public, Global, Static, Constant
+	Methods - Private, Public, Global, Static
+	Constructor
+	Inheritance
+	Method Overloading
+	
+// End - Day 1
+	
+	
+	
+
+
+
+
+	
+
