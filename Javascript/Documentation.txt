@@ -234,6 +234,9 @@ students.push('Venkat');
 // Deleting last item from array
 var item = students.pop();
 
+// for more API's please refer
+https://www.w3schools.com/js/js_array_methods.asp
+
 Printing an array
 // Approach 1
 for(var index = 0; index < students.length; index ++){
