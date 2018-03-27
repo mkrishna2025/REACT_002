@@ -322,6 +322,207 @@ for(var key in person2){
 
 // End - Day 2
 
+// Start - Day3
+
+function person(firstName, lastName) {
+	console.log('Welcome to Demo, ' + firstName + lastName);
+}
+
+// handling params order
+function person(options) {
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+person( { lastName: 'Reddy'}) -> Welcome to Demo, undefinedReddy
+
+function person(options) {
+	options = options || {};
+	options.firstName = options.firstName || '';
+	options.lastName = options.lastName || '';
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+person({ lastName: 'Reddy' }); 
+
+
+// setting person to Guest User
+function person(options) {
+	options = options || {};
+	options.firstName = options.firstName || 'Guest';
+	options.lastName = options.lastName || 'User';
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+
+function person1( firstName, lastName){
+	return {
+		getFullName: function(){
+        	return firstName + lastName;
+		}
+	}
+}
+person1('Arjun', 'Krishna').getFullName() -> ArjunKrishna
+
+function person2() {
+	return {
+		name: '',
+    	setName: function(value){
+			this.name = value;
+        },
+		getName: function(value) {
+			return this.name;
+		}
+	}
+}
+
+var obj = person2();
+obj.setName('Krishna');
+obj.getName() -> Krishna
+
+// Class
+  Structure or blueprint
+  
+  Object Oriented Concepts 
+  Access Modifiers - private(Data Hiding), public, global
+  
+  
+// Approach 1 for Creating Class
+// Syntax
+var className = function(constructor){
+	// private variables/methods
+	// global variables/methods
+	
+	return {
+		// public variables/methods
+	}
+}
+ 
+var PrintWelcome = function(){
+	return {
+		welcome: function(){
+			console.log('Welcome to Demo');
+		}
+	}
+}
+var obj = new PrintWelcome();
+obj.welcome() => Welcome to Demo
+
+var obj2 = new PrintWelcome();
+obj2.welcome() => Welcome to Demo
+obj2.welcome = function() { console.log('Welcome to Overided Demo')} 
+obj2.welcome() => Welcome to Overided Demo
+
+
+var Calculator = function(){
+	return {
+		add: function(x, y) {
+			return x + y;
+		},
+		sub: function(x, y) {
+			return x - y;
+		}
+	}
+}
+
+var ScientifcCalculator  = function(){
+	var creditCardNumber = 123456;
+	var printToConsole = function(result){
+		console.log('result is '+ result);
+	}
+	
+	pi = 3.14;
+	getDemoUser = function(){
+		return 'Guest User';
+	}
+	
+	return {
+		version: 1.0,
+		add: function(x, y) {
+			var z = x + y;
+			printToConsole(z);
+			return z;
+		},
+		sub: function(x, y) {
+			var z = x - y;
+			printToConsole(z);
+			return z;
+		},
+		areaOfTriangle: function(){
+			console.log('areaOfTriangle to be implemented');
+		}
+	}
+}
+
+// public variable/method -> can be accessed with instance
+var s1 = new ScientifcCalculator();
+console.log(s1.version);
+s1.add(1, 2)
+
+// private variable/method -> can't be accessed outside the class
+s1.printToConsole() => throws exception
+
+// global variable/method -> can be accessed directly with out instance
+console.log(pi);
+getDemoUser();
+
+
+var Person = function(firstName, lastName){
+	return {
+		getFullName: function(){
+			return firstName + ' ' + lastName;
+		}
+	}
+}
+
+var Person2 = function(options){
+	options = options || {};
+	options.firstName = options.firstName || '';
+	options.lastName = options.lastName || '';
+	
+	return {
+		getFullName: function(){
+			return options.firstName + ' ' + options.lastName;
+		}
+	}
+}
+
+var CreatePerson = function(options){
+	return {
+		getName: function(){
+			return 'Mr.' + options.name;
+		},
+		getInfo: function(){
+			return {
+				name: options.name,
+				age: options.age,
+				city: options.city
+			}
+		}
+	}
+}
+var cp1 = new CreatePerson({ name: 'Deepthi', age: 20, city: 'Hyderabad'});
+
+var CreatePerson = function(options){
+	return {
+		getName: function(){
+			return 'Mr.' + options.name;
+		},
+		getInfo: function(){
+			return {
+				name: options.name,
+				age: options.age,
+				city: options.city,
+				getString: function() {
+					return this.name + " " + options.age + " " + options.city;
+				}
+			}
+		}
+	}
+}
+var cp2 = new CreatePerson({ name: 'Prakash', age: 20, city: 'Hyderabad'});
+cp2.getInfo().getString();
+
+// End - Day 3
+
+
+
 
 
 
