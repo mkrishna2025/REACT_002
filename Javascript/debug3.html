@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+	debugger;
+	function Father(name){
+		this.getName = function(){
+			return "Mr." + name;
+		}
+	}
+
+	var Son = function(name){
+		Father.call(this, name);
+		this.getAge = function(){
+			return 10;
+		}
+	}
+	var son1 = new Son("Krish")
+	console.log(son1.getName());
+	console.log(son1.getAge());
+	
+</script>
+</head>
+<body>
+</body>
+</html>

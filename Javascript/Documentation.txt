@@ -322,7 +322,7 @@ for(var key in person2){
 
 // End - Day 2
 
-// Start - Day3
+// Start - Day 3
 
 function person(firstName, lastName) {
 	console.log('Welcome to Demo, ' + firstName + lastName);
@@ -381,6 +381,8 @@ obj.getName() -> Krishna
   
   Object Oriented Concepts 
   Access Modifiers - private(Data Hiding), public, global
+  Inheritance - Accessing Parent Members inside Child
+  Method/Function Overriding -> Overrides inside a child class.
   
   
 // Approach 1 for Creating Class
@@ -520,6 +522,179 @@ var cp2 = new CreatePerson({ name: 'Prakash', age: 20, city: 'Hyderabad'});
 cp2.getInfo().getString();
 
 // End - Day 3
+
+// Start - Day 4
+
+// Simple Object
+var person = {
+	name: '',
+	getName: function(){
+    	return this.name;
+	},
+	setName: function(value){
+    	this.name = value;
+	}
+}
+person.setName('Karthik');
+person.getName() => Karthik
+
+// Simple Function
+function addition(x, y){
+	console.log(x + y);
+}
+// Execution
+// Approach 1
+addition(1, 2);
+
+// Approach 2
+functionName.call(scope, params);
+
+addition.call(this, 1, 2); => this is like a scope
+
+// Approach 2 for Creating Class
+// Syntax
+var className = function(constructor){
+	// private variables/methods
+	// global variables/methods
+	
+	// public variables/methods
+	this.
+}
+
+var PrintWelcome = function(){
+	
+	this.welcome = function(){
+		console.log('Welcome to Demo');
+	}
+}
+var p1 = new PrintWelcome();
+p1.welcome();
+
+var Calculator = function(){
+	this.add = function(x, y) {
+		return x + y;
+	}
+	this.sub = function(x, y) {
+		return x - y;
+	}
+}
+
+var ScientifcCalculator = function(){
+	Calculator.call(this);
+	this.area = function() {};
+}
+var s1 = new ScientifcCalculator();
+s1.add(1, 2) => 3
+s1.area() => 
+
+var Calculator2 = function(){
+	var printToConsole = function(result) {
+		console.log('result is ' + result);
+	}
+	this.add = function(x, y) {
+		var z = x + y;
+		printToConsole(z);
+	}
+}
+
+var ScientifcCalculator2 = function(){
+	Calculator2.call(this);
+}
+
+var sc2 = new ScientifcCalculator2();
+sc2.add(1, 2); => private method printToConsole is accessible inside child api
+
+// Example for Constructor pattern
+function Father(name){
+	this.getName = function(){
+		return "Mr." + name;
+	}
+}
+
+var Son = function(name){
+	Father.call(this, name);
+	this.getAge = function(){
+		return 10;
+	}
+}
+var son1 = new Son("Krish")
+console.log(son1.getName());
+console.log(son1.getAge());
+
+// Multiple Inheritance
+function Father(){
+	this.getCity = function(){
+		return "Hyderabad"
+	}
+	this.bankAccount = function(){
+		return "HDFC";
+	}
+	this.getName = function(){
+		return "Akash";
+	}
+}
+function Mother(){
+	this.getLocality = function(){
+		return "Ameerpet"
+	}
+	this.bankAccount = function(){
+		return "SBI";
+	}
+}
+
+var Son = function(){
+	Father.call(this);
+	Mother.call(this);
+	this.getName = function(){
+		return "Prakash";
+	}
+}
+var s1 = new Son();
+s1.getName() => Prakash => it is overrided inside Son
+
+Method Overloading -> Triggering different code/api based on number of arguments
+Actually Method Overloading is not there, using arguments.lenth approach 
+we can support method overloading
+
+// Example for Method Overloading
+var addition = function(a, b, c, d){
+	if(arguments.length == 0) {
+		return 0;
+	}
+	else if(arguments.length == 1) {
+		return a;
+	}
+	else if(arguments.length == 2) {
+		return a + b;
+	} 
+	else if(arguments.length == 3) {
+		return a + b + c;
+	} 
+	else if(arguments.length >= 4) {
+		return a + b + c + d;
+	}
+}
+
+
+var c1 = new Calculator();
+c1.add(1, 2) => 3
+c1.sub(1, 2) => -1
+c1.mul(1, 2) => throws exception
+
+prototype
+	Injects methods into existing Classes 
+	It injects methods for old instances and new instances
+
+Calculator.prototype.mul = function(x, y){
+	return x * y;
+}
+c1.mul(10, 2) => 20
+
+// End - Day 4
+
+
+
+
 
 
 

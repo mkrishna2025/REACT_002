@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+	debugger;
+	var Calculator = function(){
+		this.add = function(x, y) {
+			return x + y;
+		}
+		this.sub = function(x, y) {
+			return x - y;
+		}
+	}
+	var ScientifcCalculator = function(){
+		Calculator.call(this);
+		this.area = function() {};
+	}
+	
+	var CustomCalculator = function(){
+		ScientifcCalculator.call(this);
+		this.customAPI = function() {};
+	}
+	
+	//var c1 = new Calculator();
+	//var s1 = new ScientifcCalculator();
+	var cc1 = new CustomCalculator();
+	
+</script>
+</head>
+<body>
+</body>
+</html>
