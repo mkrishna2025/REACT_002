@@ -1,0 +1,64 @@
+<html>
+<head>
+<script>
+	debugger;
+	// Creating Person - Custom/Complex Datatype
+	function Person(options){
+		return {
+			name: options.name,
+			age: options.age,
+			gender: options.gender,
+			city: options.city,
+			getDisplayName: function(){
+				return options.name + ","+ options.age + ","+ options.gender + ","+ options.city;
+			}
+		}
+	}
+
+	// Creating Array of Person Instances from JSON Array of data
+	function createPersons(){
+		var persons = [];
+		var data = [
+			{ name: 'Keerthi', age: 20, gender: 'f', city: 'Hyderabad'},
+			{ name: 'Naresh', age: 20, gender: 'm', city: 'Vijaywada'},
+			{ name: 'Prakash', age: 21, gender: 'm', city: 'Hyderabad'},
+			{ name: 'Archana', age: 21, gender: 'f', city: 'Delhi'},
+			{ name: 'Lakshman', age: 23, gender: 'm', city: 'Hyderabad'},
+			{ name: 'Bavani', age: 21, gender: 'f', city: 'Hyderabad'},
+			{ name: 'Venkat', age: 27, gender: 'm', city: 'Delhi'},
+			{ name: 'Mallesh', age: 22, gender: 'm', city: 'Hyderabad'},
+			{ name: 'Bindu', age: 27, gender: 'f', city: 'Ongole'},
+			{ name: 'Arjun', age: 20, gender: 'm', city: 'Delhi'},
+			{ name: 'Kumar', age: 23, gender: 'm', city: 'Hyderabad'},
+			{ name: 'Preethi', age: 32, gender: 'f', city: 'Hyderabad'},
+			{ name: 'Ramesh', age: 30, gender: 'm', city: 'Visakapatnam'},
+			{ name: 'Suresh', age: 32, gender: 'm', city: 'Nellore'}
+		];
+		for(var item of data){
+			persons.push(new Person(item));
+		}
+		
+		return persons;
+	}
+	var persons = createPersons();
+	function retrieve(persons, callBack){
+		var items = [];
+		debugger;
+		for(var person of persons){
+			if(callBack(person)){
+				items.push(person);
+			}
+		}
+		return items;
+	}
+	var p2 = retrieve(persons, function(person) { 
+		return person.age == 20; 
+	});
+
+
+	
+</script>
+</head>
+<body>
+</body>
+</html>

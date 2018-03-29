@@ -161,8 +161,8 @@ var sum = (function addition(x, y) {
 
 lowerCase -> addperson
 upperCase -> ADDPERSON
-camelCase -> addPerson -> prefers for function Names
-variableCase -> AddPerson
+camelCase -> addPerson -> prefers for function Names, instances
+variableCase -> AddPerson -> class names
 
 Object
 Arrays
@@ -233,9 +233,6 @@ students.push('Venkat');
 
 // Deleting last item from array
 var item = students.pop();
-
-// for more API's please refer
-https://www.w3schools.com/js/js_array_methods.asp
 
 Printing an array
 // Approach 1
@@ -692,8 +689,84 @@ c1.mul(10, 2) => 20
 
 // End - Day 4
 
+// Start - Day 5
 
+//Creating Student class having name and age as properties/fields
+function Student(options){
+	this.name = options.name;
+	this.age = options.age;
+}
 
+//Creating instances
+var s1 = new Student({ name: 'lakshman', age: 20});
+var s2 = new Student({ name: 'Venkat', age: 20});
+
+// Creating Students
+function createStudents(){
+	var students = [];
+	
+	var s1 = new Student({ name: 'lakshman', age: 20});
+	var s2 = new Student({ name: 'Venkat', age: 20});
+	
+	students.push(s1);
+	students.push(s2);
+	
+	return students;
+}
+
+// Creating array of 2 records
+var data = [
+	{ name: 'lakshman', age: 20},
+	{ name: 'Venkat', age: 20}
+]
+
+// Creating Students from JSON array
+function CreateStudents(){
+	var items = [
+		{ name: 'lakshman', age: 20, city: 'Hyderabad'},
+		{ name: 'Venkat', age: 20, city: 'Vijayawada'}
+	];
+	var students = [];
+	for(var item of items){
+		//students.push(new Student(item));
+		students.push(new Student({ name: item.name, age: item.age}));
+	}
+	return students;
+}
+
+// normal function
+function addition(x, y) {
+	return x + y;
+}
+addition(1, 2);
+
+// Callback function
+ passing functions as arguments to the called function. 
+ These functions are executed inside called function.
+ 
+function addition(x, y, callBack) {
+	callBack();
+	return x + y;
+}
+addition(1, 2, function() { console.log('Calculation is successful')} );
+
+function subtraction(x, y, func){
+	var z = x - y;
+	func(z);
+}
+
+subtraction(10, 2, function(value) { console.log(' Result is ' + value)} );
+
+function multiplication(x, y, callBack){
+	var z = x * y;
+	callBack(z);
+}
+
+function print(value) {
+	console.log('result is ' + value);
+}
+
+multiplication(2, 10, print);
 
 
 
