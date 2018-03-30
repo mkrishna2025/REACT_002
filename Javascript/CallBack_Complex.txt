@@ -118,3 +118,14 @@ persons.retrieve(function(person){ return person.age == 20; });
 
 // you can have good naming convention like where
 persons.where(function(person){ return person.age == 20; });
+
+// Iterating all items of array and calling callBack function for each item
+Array.prototype.forEach = function(callBack) {
+	for(var item of this){
+		callBack(item);
+	}
+}
+persons.forEach(function(person) {console.log(person.getDisplayName())});
+
+persons.retrieve(function(person){ return person.age == 20; }).forEach(function(person) { console.log(person.getDisplayName() )});
+

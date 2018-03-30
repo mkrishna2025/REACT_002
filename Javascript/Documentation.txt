@@ -768,17 +768,150 @@ function print(value) {
 
 multiplication(2, 10, print);
 
+// End - Day 5
+
+// Start - Day 6
+
+// Approach 3 for Creating Class
+// ES6 standards using babel
+http://babeljs.io/
+babel is a plugin to convert new standards into old standard which browser understands.
+Note: Run below examples in babel.html where babel plugin is included inside scripts
+class Person {
+	getAge(){
+		return 20;
+	}
+}
+var p1 = new Person();
+p1.getAge(); => 20
+
+class Calculator {
+	add(x, y) {
+		return x + y;
+	}
+	sub(x, y){
+		return x - y;
+	}
+}
+
+// Inheritance
+class Father {
+	getName(){
+		return "Venkat";
+	}
+	getGender(){
+		return "Male";
+	}
+}
+
+class Son extends Father{
+	getName(){
+		return "Prakash";
+	}
+	getCity(){
+		return "Hyderabad";
+	}
+}
+var s1 = new Son();
+
+s1.getCity() => "Hyderabad"
+s1.getName() => "Prakash"
+s1.getGender() => "Male"
+
+// Variables can be created inside constructor
+class Student{
+	constructor(fullName) {
+		this.name = fullName;
+	}
+	static getType(){
+		return "Human";
+	}
+	getFullName(){
+		return this.name;
+	}
+}
+var s1 = new Student("Keerthi Reddy")
+s1.getFullName()
+
+Student.getType() => Static API => method that can be accessible directly from class and not from instance.
+
+const variables are liked fixed variables and cant be updated
+const pi = 3.14; => pi value can be set at the time of initialization and cant be updated later.\
+
+// End - Day 6 - End of Javascript
+
+https://github.com/mkrishna2025/Training/blob/master/Javascript/Complete/Framework%202.0.js
 
 
+Ext.create('Ext.Button', {
+    renderTo: document.body,
+    text    : 'Click me',
+    scale   : 'large'
+});
+
+var Ext = {
+	create: function(type, options){
+		if(type == 'Ext.Button'){
+			var element = document.createElement('input');
+			element.type = 'button';
+			element.value = options.text;
+			options.renderTo.appendChild(element);
+		}
+	}
+}
+
+var childPanel1 = Ext.create('Ext.panel.Panel', {
+    title: 'Child Panel 1',
+    html: 'A Panel'
+});
+
+var Ext = {
+	create: function(type, options){
+		if(type == 'Ext.Button'){
+			var element = document.createElement('input');
+			element.type = 'button';
+			element.value = options.text;
+			options.renderTo.appendChild(element);
+		} else if(type == 'Ext.panel.Panel') {
+			var element = document.createElement('div');
+			element.innerHTML += "<h1>"+ options.title+"</h1>";
+			element.innerHTML += html;
+			return element;
+		}
+	}
+}
 
 
-
-
-
-
-
-
-
+Ext.create('Ext.tab.Panel', {
+    renderTo: Ext.getBody(),
+    height: 100,
+    width: 200,
+    items: [
+        {
+            // Explicitly define the xtype of this Component configuration.
+            // This tells the Container (the tab panel in this case)
+            // to instantiate a Ext.panel.Panel when it deems necessary
+            xtype: 'panel',
+            title: 'Tab One',
+            html: 'The first tab',
+            listeners: {
+                render: function() {
+                    Ext.MessageBox.alert('Rendered One', 'Tab One was rendered.');
+                }
+            }
+        },
+        {
+            // xtype for all Component configurations in a Container
+            title: 'Tab Two',
+            html: 'The second tab',
+            listeners: {
+                render: function() {
+                    Ext.MessageBox.alert('Rendered One', 'Tab Two was rendered.');
+                }
+            }
+        }
+    ]
+});
 
 
 

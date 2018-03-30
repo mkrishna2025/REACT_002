@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script type="text/javascript">
+		var NIT = {
+			version: 1.0,
+			createLabel: function(options){
+				var element = document.createElement('label');
+				element.innerHTML = options.text;
+				return element;
+			},
+			createTextBox: function (options){
+				var element = document.createElement('input');
+				element.type = 'text';
+				return element;
+			},
+			createButton: function(options){
+				var element = document.createElement('input');
+				element.type = 'button';
+				element.value = options.text;
+				return element;
+			},
+			createElement: function(type, options){
+				if(type == 'textbox'){
+					return this.createTextBox();
+				} else if(type == 'button'){
+					return this.createButton(options);
+				} else if(type == 'label'){
+					return this.createLabel(options);
+				}   
+			}
+		}
+		
+		
+		function startUp(){
+			debugger;
+			var container = document.getElementById('root');
+			container.innerHTML += 'Welcome to Demo';
+			container.innerHTML += "<br/>";
+			container.innerHTML += "<br/>";
+			
+			container.appendChild(NIT.createLabel({ text: 'User Name'}));
+			
+			container.appendChild(NIT.createTextBox());
+			
+			container.innerHTML += "<br/>";
+			container.innerHTML += "<br/>";
+			
+			container.appendChild(NIT.createLabel({ text: 'Password'}));
+			
+			container.appendChild(NIT.createTextBox());
+			
+			container.innerHTML += "<br/>";
+			container.innerHTML += "<br/>";
+			
+			container.appendChild(NIT.createButton({ text: 'Login'}));
+		
+			
+		
+		}
+	</script>
+</head>
+<body onLoad="startUp()">
+	<div id="root">
+	</div>
+</body>
+</html>

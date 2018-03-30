@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script type="text/javascript">
+		//alert('Script is Executed');
+		function statUp(){
+			debugger;
+			document.getElementById('root').innerHTML += 'Welcome to Demo';
+			document.getElementById('root').innerHTML += "<br/>";
+			document.getElementById('root').innerHTML += "<br/>";
+			
+			var element = document.createElement('label');
+			element.innerHTML = "User Name";
+			//element.style = "color:yellow";			
+			document.getElementById('root').appendChild(element);
+			
+			var input = document.createElement('input');
+			input.type = 'text';
+			document.getElementById('root').appendChild(input);
+			
+			document.getElementById('root').innerHTML += "<br/>";
+			document.getElementById('root').innerHTML += "<br/>";
+			
+			var element2 = document.createElement('label');
+			element2.innerHTML = "Password";
+			//element.style = "color:yellow";			
+			document.getElementById('root').appendChild(element2);
+			
+			var input2 = document.createElement('input');
+			input2.type = 'text';
+			document.getElementById('root').appendChild(input2);
+			
+			document.getElementById('root').innerHTML += "<br/>";
+			document.getElementById('root').innerHTML += "<br/>";
+		
+			var button = document.createElement('input');
+			button.type = 'button';
+			button.value = 'login';
+			document.getElementById('root').appendChild(button);
+		
+		}
+	</script>
+</head>
+<body onLoad="statUp()">
+	<div id="root">
+	</div>
+</body>
+</html>
