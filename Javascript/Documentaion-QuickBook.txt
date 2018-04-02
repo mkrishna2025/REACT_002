@@ -130,3 +130,74 @@ b1.setHTML("Secondary");
 
 <button ion-button round outline>Outline + Round</button>
 
+SENCHA/EXT
+
+Ext.create('Ext.Button', {
+    renderTo: document.body,
+    text    : 'Click me',
+    scale   : 'large'
+});
+
+var Ext = {
+	create: function(type, options){
+		if(type == 'Ext.Button'){
+			var element = document.createElement('input');
+			element.type = 'button';
+			element.value = options.text;
+			options.renderTo.appendChild(element);
+		}
+	}
+}
+
+var childPanel1 = Ext.create('Ext.panel.Panel', {
+    title: 'Child Panel 1',
+    html: 'A Panel'
+});
+
+var Ext = {
+	create: function(type, options){
+		if(type == 'Ext.Button'){
+			var element = document.createElement('input');
+			element.type = 'button';
+			element.value = options.text;
+			options.renderTo.appendChild(element);
+		} else if(type == 'Ext.panel.Panel') {
+			var element = document.createElement('div');
+			element.innerHTML += "<h1>"+ options.title+"</h1>";
+			element.innerHTML += html;
+			return element;
+		}
+	}
+}
+
+
+Ext.create('Ext.tab.Panel', {
+    renderTo: Ext.getBody(),
+    height: 100,
+    width: 200,
+    items: [
+        {
+            // Explicitly define the xtype of this Component configuration.
+            // This tells the Container (the tab panel in this case)
+            // to instantiate a Ext.panel.Panel when it deems necessary
+            xtype: 'panel',
+            title: 'Tab One',
+            html: 'The first tab',
+            listeners: {
+                render: function() {
+                    Ext.MessageBox.alert('Rendered One', 'Tab One was rendered.');
+                }
+            }
+        },
+        {
+            // xtype for all Component configurations in a Container
+            title: 'Tab Two',
+            html: 'The second tab',
+            listeners: {
+                render: function() {
+                    Ext.MessageBox.alert('Rendered One', 'Tab Two was rendered.');
+                }
+            }
+        }
+    ]
+});
