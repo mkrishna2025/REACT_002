@@ -1,0 +1,65 @@
+React
+	
+WhatsApp
+Messages -> 
+Assume there are 3 messages
+	<text value='Hello' />
+	<text value='How are you' />
+	<text value='I am fine' />
+	
+Original DOM
+	<text value='Hello' />
+	<text value='How are you' />
+	<text value='I am fine' />
+Virtual DOM 
+	<text value='Hello' />
+	<text value='How are you' />
+	<text value='I am fine' />
+	
+On New Message Arrives 
+Virtual DOM - recreated
+	<text value='Hello' />
+	<text value='How are you' />
+	<text value='I am fine' fontSize=20 />
+	<text value='Good to Hear' />
+Compares each node with original DOM
+new Nodes -> will be injected
+updated Nodes -> Syncronized/Updated
+nodes are deleted -> removed in orginal DOM 
+
+Ex:
+Original/Virtual DOM -> r1, r2 , r3 are restaurants
+When Data Changes -> r1, r21, r4, r5 
+	Virtual DOM -> recreated with r1, r21, r4, r5 and then below changes are applied to original DOM
+		-> r2 node is updated with r21
+		->r3 will be deleted
+		-> r4, r5 will be injected
+		
+React Principle
+	When page is loaded for first time, Virtual DOM and Original DOM are created. 
+	Virtual DOM is just replica/clone of original DOM.
+	When data changes => Virtual DOM is recreated
+	and then Virtual DOM and Original DOM are compared node by node
+	if it finds new Node -> Injected
+				updated Node -> Updated
+				missing in new Virtual DOM -> Deleted
+		
+
+React - createElement(type, attributes, html)
+ReactDOM - render(what to render, where to render)
+Babel -> converts our JSX syntax into older structure 
+
+JSX
+	<div id="div1"> Welcome to Demo </div>
+Old Structure
+	React.createElement('div', { id: 'div1'}, 'Welcome to Demo')
+	
+HTML vs JSX
+HTML 
+	not compile - <div> Welcome to Demo <div>
+	rendered Directly
+JSX 
+	compiled - <div> Welcome to Demo </div>
+	converted into old structure(React.createElement) and then HTML components are created dynamically and injected
+	
+	

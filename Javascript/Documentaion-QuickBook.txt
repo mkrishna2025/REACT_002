@@ -1,0 +1,132 @@
+class Person {
+	construtor(fullName){
+		this.city = '';
+	}
+}
+
+function Person(fullName) {
+	this.city = '';
+}
+
+Person is class, p1 is instance
+var p1 = new Person('Karthik Reddy');
+
+Name field is public
+public => console.log(p1.Name)
+private => console.log(p1.Name) => throws exception ie not accessible
+static => console.log(Person.Name)
+global => console.log(Name)
+constant => console.log(Name) => We can access but cant update
+
+Prototype => For Injecting API's into Existing Class
+
+Method/API/function/Interface
+field/property
+
+scope => can access using this keyword, it can be local or passed in scope.
+
+CallBack => passing functions as a parameter and will be called/triggered inside called function.
+
+Event => What ever browser captures the movements in any device like mouse/keyboard. These are called DOM Events.
+Button -> click => onClick 
+TextBox -> change => onChange
+
+var p1;
+p1 => object
+p1 = new Person();
+p1 is an object of instance Person
+
+CallBack
+	Predicate => returns boolean
+	Function => returns Value
+	Action => returns nothing
+
+	
+function retrieve(persons, predicate){
+	var items = [];
+	for(var person of persons){
+		if(predicate(person)){
+			items.push(person);
+		}
+	}
+	return items;
+}
+
+HTML
+NIT.createButton ...
+NIT.createElement('button' ..
+
+<input type="radio" id= "form1_no" value="no" checked>
+
+var element = document.createElement('input');
+//element.type = "radio";
+element.setAttribute('type', "radio");
+element.setAttribute('id', "form1_no");
+element.setAttribute('value', "no");
+element.setAttribute('checked', true);
+
+var document = {
+	createElement: function(type, options){
+		if(type == 'input') {
+			var element = new input();
+			return element;
+		}
+	}, 
+	getElementById: function(..) {},
+	getElementsByClassName: function(..) {}
+}
+
+function input(){
+	this.type = '';
+	this.id = '';
+	this.value = '';
+	if(this.type == 'checkBox' || this.type == 'radioBox'){
+		this.checked = false;
+	}
+	
+	this.setAttribute = function(key, value){
+		this[key] = value;
+	}
+}
+
+class input {
+	constructor(){
+		this.type = '';
+		this.id = '';
+		this.value = '';
+		this.checked = false;
+	}
+	setAttribute(key, value){
+		this[key] = value;
+	}
+}
+
+var i1 = new input();
+i1.
+
+
+IONIC 
+<button ion-button color="secondary">Secondary</button>
+
+class button {
+	constructor(){
+		this['ion-button'] = false;
+		this['color'] = '';
+		this['full'] = false
+	}
+	setHTML(html) {
+	}
+}
+
+var b1 = new button();
+b1['ion-button'] = true;
+b1['color'] = "secondary";
+b1['full'] = true;
+b1.setHTML("Secondary");
+
+<button ion-button full outline>Outline + Full</button>
+
+<button ion-button block outline>Outline + Block</button>
+
+<button ion-button round outline>Outline + Round</button>
+
