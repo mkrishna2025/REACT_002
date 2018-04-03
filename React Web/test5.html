@@ -1,0 +1,86 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script> 
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="app"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			render() {
+				var courses = [
+							"React", 
+							"React Native", 
+							"JavaScript", 
+							"Node", 
+							"Express",
+							"Mongoose"
+						];
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{courses.map( function(item) {
+								return <li>{item}</li>
+							} )}
+						</ul>
+					 </div>
+				);
+			}
+			
+		}
+		
+		class TestComponent2 extends React.Component {
+			render() {
+				var courses = [
+							"React", 
+							"React Native", 
+							"JavaScript", 
+							"Node", 
+							"Express",
+							"Mongoose"
+						];
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{courses.map(item => <li>{item}</li>)}
+						</ul>
+					 </div>
+				);
+			}
+		}
+		
+		class TestComponent3 extends React.Component {
+			renderItem(item){
+				return <li>{item}</li>;
+			}
+			render() {
+				var courses = [
+							"React", 
+							"React Native", 
+							"JavaScript", 
+							"Node", 
+							"Express",
+							"Mongoose"
+						];
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{courses.map(this.renderItem)}
+						</ul>
+					 </div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent3 />, document.getElementById('app')); 
+ 	 </script> 
+ </body>  
+</html> 

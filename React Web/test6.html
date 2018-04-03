@@ -1,0 +1,88 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script> 
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="app"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: [
+						"React", 
+						"React Native", 
+						"JavaScript", 
+						"Node", 
+						"Express",
+						"Mongoose"
+					]
+				};
+			}
+			buttonClick(event){
+				debugger;
+				var currentCourses = this.state.courses;
+				currentCourses.push("MERN");
+				//currentCourses.pop();
+				
+				this.setState({ courses: currentCourses });
+				
+				//this.state.courses.push("MERN");
+			}
+			
+			render() {
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{this.state.courses.map(item => <li>{item}</li>)}
+						</ul>
+						<input type="button" value="Refresh" onClick={this.buttonClick.bind(this)} />
+					 </div>
+				);
+			}
+		}
+		
+		class TestComponent2 extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					courses: [
+						
+					]
+				};
+			}
+			buttonClick(event){
+				this.setState({ courses: [ 
+							"React", 
+							"React Native", 
+							"JavaScript", 
+							"Node", 
+							"Express",
+							"Mongoose"
+						] 
+					});
+			}
+			
+			render() {
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{this.state.courses.map(item => <li>{item}</li>)}
+						</ul>
+						<input type="button" value="Load" onClick={this.buttonClick.bind(this)} />
+					 </div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent2 />, document.getElementById('app')); 
+ 	 </script> 
+ </body>  
+</html> 

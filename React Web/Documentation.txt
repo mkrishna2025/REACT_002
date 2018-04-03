@@ -63,3 +63,62 @@ JSX
 	converted into old structure(React.createElement) and then HTML components are created dynamically and injected
 	
 	
+React Component
+	In order to use Life Cycle, We need to use React Components
+	
+Creating a React Component => Create a class and Extend React.Component and implement the render method
+
+Array.prototype.map = function(callback){
+	for(var item of this){
+		callback(item);
+	}
+}
+
+function(item) {
+	return <li>{item}</li>;
+}
+
+(item) => {
+	return <li>{item}</li>;
+}
+
+(item) => <li>{item}</li>;
+
+creating variables 
+class Person {
+	constructor() {
+		this.firstName
+	}
+}
+
+React -> When data changes, screen refreshes
+ie that data should be inside this.state
+
+Local/block level Variable
+var firstName = '';
+
+Normal Variable
+this.firstName
+
+State Variable
+this.state.firstName
+
+State Management: Assume there are 100 textboxes, we have filled 50 boxes so far... 
+suddenly we refreshed the page, 50 textboxes should retain the value. 
+This process is called StateManagement.
+	HiddenFields
+	ViewState
+	Cookie
+	Local Storage
+	
+this.state.restaurants = ["A", "B"];
+this.setState( { restaurants: ["A", "B", "C"] });
+
+Passing scope to Javascript method
+method.bind(this);
+
+setState is an API written in React.Component. It will recreate Virtual DOM and then Nodes are synchronized.
+
+
+	
+
