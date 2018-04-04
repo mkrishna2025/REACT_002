@@ -1,0 +1,51 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script> 
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="app"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			
+			method1(x){
+				this.method2(x, 20);
+			}
+			
+			method2(x, y){
+				this.method3(x, y, 30);
+			}
+			
+			method3(x, y, z){
+				var person = {
+					fn: 'Prakash',
+					l: 'Kumar'
+				}
+				debugger;
+			}
+			
+			buttonClick(){
+				this.method1(10);
+			}
+			
+			render(){
+				//this.props.title = "Welcome";
+				return (
+					<div>
+						{this.props.title}
+						<input type="button" value="Click" onClick={this.buttonClick.bind(this)} />
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent title="Welcome to Call Stack Demo." />, document.getElementById('app')); 
+ 	 </script> 
+ </body>  
+</html> 

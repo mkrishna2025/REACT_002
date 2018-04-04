@@ -1,0 +1,70 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script> 
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="app"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		const data = [
+						{ firstName: 'Smitha', lastName: 'Reddy', age: 30 },
+						{ firstName: 'Venkat', lastName: 'Krishna', age: 20 },
+						{ firstName: 'Karthik', lastName: 'Reddy', age: 30 },
+						{ firstName: 'Prakash', lastName: 'Kumar', age: 25 }
+					];
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					students: data,
+					filteredStudents: data
+				}
+			}
+			
+			searchBoxChange(event) {
+				var searchStr = event.target.value;
+				var filteredStudents = [];
+				for(var student of this.state.students){
+					if(student.firstName.toLowerCase().indexOf(searchStr.toLowerCase()) >= 0 ||
+						student.lastName.toLowerCase().indexOf(searchStr.toLowerCase()) >= 0
+					){
+						filteredStudents.push(student);
+					}
+				}
+				this.setState({ filteredStudents: filteredStudents });
+			}
+			
+			render(){
+				return (
+					<div>
+						Welcome to Students. Filtering FirstName or LastName 
+						<br/>
+						<br/>
+						<input type="textbox" onChange={this.searchBoxChange.bind(this)}/> Search
+						<br/>
+						<br/>
+						<table>
+							<tr>
+								<th>Firstname</th>
+								<th>Lastname</th> 
+								<th>Age</th>
+							</tr>
+							{this.state.filteredStudents.map(student => {
+								return <tr>
+											<td>{student.firstName}</td>
+											<td>{student.lastName}</td> 
+											<td>{student.age}</td>
+										</tr>;
+							})}
+						</table>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent />, document.getElementById('app')); 
+ 	 </script> 
+ </body>  
+</html> 

@@ -66,8 +66,24 @@ JSX
 React Component
 	In order to use Life Cycle, We need to use React Components
 	
-Creating a React Component => Create a class and Extend React.Component and implement the render method
-
+	
+Creating a React Component => 
+	Create a class and Extend React.Component 
+	and implement the render method.
+	
+Advantages
+	Life Cycle
+	StateManagement
+	
+State Management: Assume there are 100 textboxes, we have filled 50 boxes so far... 
+suddenly we refreshed the page, 50 textboxes should retain the value. 
+This process is called StateManagement.
+	HiddenFields
+	ViewState
+	Cookie
+	Local Storage
+	Use React Stateful Components
+	
 Array.prototype.map = function(callback){
 	for(var item of this){
 		callback(item);
@@ -78,21 +94,29 @@ function(item) {
 	return <li>{item}</li>;
 }
 
+Array Function
 (item) => {
 	return <li>{item}</li>;
 }
 
 (item) => <li>{item}</li>;
 
-creating variables 
+creating Class with one public Variable in ES6 standard
 class Person {
 	constructor() {
-		this.firstName
+		this.firstName = '';
 	}
 }
 
 React -> When data changes, screen refreshes
 ie that data should be inside this.state
+
+creating variables
+	Local/block level Variable
+	Normal Class Level Variable
+	State Variable
+	Properties -> I can access values but cant update.
+
 
 Local/block level Variable
 var firstName = '';
@@ -103,22 +127,68 @@ this.firstName
 State Variable
 this.state.firstName
 
-State Management: Assume there are 100 textboxes, we have filled 50 boxes so far... 
-suddenly we refreshed the page, 50 textboxes should retain the value. 
-This process is called StateManagement.
-	HiddenFields
-	ViewState
-	Cookie
-	Local Storage
-	
+Properties
+this.props.firstName
+
 this.state.restaurants = ["A", "B"];
 this.setState( { restaurants: ["A", "B", "C"] });
 
 Passing scope to Javascript method
 method.bind(this);
 
-setState is an API written in React.Component. It will recreate Virtual DOM and then Nodes are synchronized.
+setState is an API written in React.Component. 
+It will recreate Virtual DOM and then Nodes are synchronized.
+
+Constructing Li Elements
+HTML
+<ul>
+	<li>React</li>
+	<li>React Native </li>
+</ul>
+
+Approach 1
+<ul>
+	{courses.map( function(item) {
+		return <li>{item}</li>
+	} )}
+</ul>
+
+Approach 2 - Most Preferable
+<ul>
+	{courses.map(item => <li>{item}</li>)}
+</ul>
+
+Approach 3
+renderItem(item){
+	return <li>{item}</li>;
+}
+<ul>
+	{courses.map(this.renderItem)}
+</ul>
+
+Approach 4
+getCourses(items){
+	var list = [];
+	for(var item of items){
+		list.push(<li>{item}</li>);
+	}
+	return list;
+}
+<ul>
+	{this.getCourses(courses)}
+</ul>
 
 
-	
+Events
+	Button
+		OnClick
+	TextBox
+		OnChange
 
+string.indexOf(str) gives first occurance of str
+"Krishna".indexOf("J") => -1
+"Krishna".indexOf("K") => 0
+"Krishna".indexOf("i") => 2
+
+// HTML table reference 
+https://www.w3schools.com/html/html_tables.asp

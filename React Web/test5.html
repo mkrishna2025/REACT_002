@@ -80,7 +80,38 @@
 				);
 			}
 		}
- 		ReactDOM.render(<TestComponent3 />, document.getElementById('app')); 
+		
+		class TestComponent4 extends React.Component {
+			getCourses(items){
+				var list = [];
+				for(var item of items){
+					list.push(<li>{item}</li>);
+				}
+				return list;
+			}
+			render() {
+				var courses = [
+							"React", 
+							"React Native", 
+							"JavaScript", 
+							"Node", 
+							"Express",
+							"Mongoose"
+						];
+				return (
+					<div> 
+						Welcome to Courses
+						<br/>
+						<ul>
+							{this.getCourses(courses)}
+						</ul>
+					 </div>
+				);
+			}
+		}
+		
+		
+ 		ReactDOM.render(<TestComponent4 />, document.getElementById('app')); 
  	 </script> 
  </body>  
 </html> 

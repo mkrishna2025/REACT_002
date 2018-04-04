@@ -1,0 +1,61 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script> 
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="app"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					students: [
+						"Archana",
+						"Bindu",
+						"Charan",
+						"Chankri",
+						"Bharath"
+					],
+					filteredStudents: [
+						"Archana",
+						"Bindu",
+						"Charan",
+						"Chankri",
+						"Bharath"
+					]
+				}
+			}
+			
+			render(){
+				return (
+					<div>
+						Welcome to Students. Applied filters using inline Arrow function
+						<br/>
+						<br/>
+						<input type='textbox' onChange={event => {
+							var searchStr = event.target.value;
+							var filteredStudents = [];
+							for(var student of this.state.students){
+								if(student.indexOf(searchStr) >= 0){
+									filteredStudents.push(student);
+								}
+							}
+							this.setState({ filteredStudents: filteredStudents });
+						}}/> Search
+						<br/>
+						<br/>
+						<ul>
+							{this.state.filteredStudents.map(student => <li>{student}</li>)}
+						</ul>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent />, document.getElementById('app')); 
+ 	 </script> 
+ </body>  
+</html> 
