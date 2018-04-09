@@ -1,0 +1,99 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script>
+	 <link rel="stylesheet" href="Test13.css" />
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					firstName: '',
+					lastName: '',
+					country: '',
+					state: '',
+					countries: [
+						{ value: 'ind', name: 'India'},
+						{ value: 'aus', name: 'Australia'},
+						{ value: 'can', name: 'Canada'},
+						{ value: 'eng', name: 'England'},
+						{ value: 'us', name: 'United States'}
+					],
+					states: [
+						{ value: 'and', name: 'Andhra Pradesh', country: 'ind'},
+						{ value: 'del', name: 'Delhi', country: 'ind'},
+						{ value: 'tel', name: 'Telangana', country: 'ind'},
+						{ value: 'nj', name: 'New Jersey', country: 'us'},
+						{ value: 'wash', name: 'Washington', country: 'us'}
+					],
+					filteredStates: [
+						{ value: 'and', name: 'Andhra Pradesh', country: 'ind'},
+						{ value: 'del', name: 'Delhi', country: 'ind'},
+						{ value: 'tel', name: 'Telangana', country: 'ind'},
+						{ value: 'nj', name: 'New Jersey', country: 'us'},
+						{ value: 'wash', name: 'Washington', country: 'us'}
+					]
+				}
+			}
+			loginClick(){
+				var json = {
+					fn: this.state.firstName,
+					ln: this.state.lastName,
+					cty: this.state.country,
+					ste: this.state.state
+				}
+				alert(JSON.stringify(json));
+				
+			}
+			
+			onCountryChange(event){
+				this.state.country = event.target.value;
+				var filteredItems = [];
+				for(var state of this.state.states){
+					if(state.country == this.state.country){
+						filteredItems.push(state);
+					}
+				}
+				this.setState( { filteredStates: filteredItems });
+			}
+			
+			render(){
+				return (
+					<div>
+						<h3>Using CSS to style an HTML Form</h3>
+						<div>
+							<label>First Name</label>
+							<input type="text" id="fname" name="firstname" placeholder="Your name.." onChange={ event => this.state.firstName = event.target.value } />
+
+							<label>Last Name</label>
+							<input type="text" id="lname" name="lastname" placeholder="Your last name.." onChange={ event => this.state.lastName = event.target.value } />
+
+							<label>Country</label>
+							<select id="country" name="country" onChange={ this.onCountryChange.bind(this)} >
+								<option value="0">Select Country</option>
+								{this.state.countries.map( country => <option value={country.value}>{country.name}</option> )}
+							</select>
+							
+							<label>State</label>
+							<select id="state" name="state" onChange={ event => this.state.state = event.target.value } >
+								<option value="0">Select State</option>
+								{this.state.filteredStates.map( state => <option value={state.value}>{state.name}</option> )}
+							</select>
+							
+							
+							<input type="button" value="Login" onClick={this.loginClick.bind(this)} />
+						</div>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent />, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

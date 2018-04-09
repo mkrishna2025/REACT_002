@@ -179,11 +179,26 @@ getCourses(items){
 </ul>
 
 
+
+<link rel="stylesheet" href="filename.css" />
+
 Events
 	Button
 		OnClick
 	TextBox
 		OnChange
+		
+class TextBox {
+	onChange(callback){
+		callback(event);
+	}
+}
+
+onChange(event) {
+
+}
+<TextBox onChange={this.onChange} />
+<TextBox onChange={event => console.log(event.target.value)} />
 
 string.indexOf(str) gives first occurance of str
 "Krishna".indexOf("J") => -1
@@ -192,3 +207,15 @@ string.indexOf(str) gives first occurance of str
 
 // HTML table reference 
 https://www.w3schools.com/html/html_tables.asp
+
+// Day 4
+
+Steps to convert html to React Page
+1. Place styles inside header with out any change.
+2. Copy the html to render API. replace body tag with div.
+
+HTML
+<h3 style="color:green">
+
+JSX
+<h3 style={{ color: "green" }}>
