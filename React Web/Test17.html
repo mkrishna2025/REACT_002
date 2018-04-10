@@ -1,0 +1,100 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class Student extends React.Component {
+			render(){
+				var student = this.props.item;
+				return (
+					<tr>
+						<td>{this.props.item.name}</td>
+						<td>{this.props.item.age}</td>
+						<td>{this.props.item.city}</td>
+					</tr>
+				);
+			}
+		}
+		
+		class Department extends React.Component {
+			render(){
+				var department = this.props.item;
+				return (
+					<tr>
+						<td>{department.name}</td>
+					</tr>
+				);
+			}
+		}
+		
+		class ListView extends React.Component {
+			render() {
+				var header = this.props.header;
+				var body = this.props.body;
+				return (
+					<table style={{ border: "1px solid"}}>
+						{header}
+						<tbody>
+							{body}
+						</tbody>
+					</table>
+				);
+			}
+		}
+		
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					students: [
+						{ name: "Archana", age: 20, city: 'Hyderabad'},
+						{ name: "Venkat", age: 20, city: 'Hyderabad'},
+						{ name: "Deepak", age: 33, city: 'Delhi'},
+						{ name: "Rajesh", age: 25, city: 'Hyderabad'},
+						{ name: "Arjun", age: 20, city: 'Vijayawada'}
+					],
+					departments: [
+						{ name: "Electronics" },
+						{ name: "Computers" },
+						{ name: "IT" },
+						{ name: "Mechanical " },
+						{ name: "Civil" }
+					]
+					
+				}
+			}
+			render(){
+				return (
+					<div>
+						<ListView 
+							header = {<tr>
+								<th>Name</th>
+								<th>Age</th> 
+								<th>City</th>
+							</tr>}
+							body = {this.state.students.map(student => <Student item={student} />)}
+						/>
+						<br/>
+						<br/>
+						<table style={{ border: "1px solid"}}>
+							<tr>
+								<th>Department</th>
+							</tr>
+							<tbody>
+								{this.state.departments.map(department => <Department item={department} />)}
+							</tbody>
+						</table>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent />, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

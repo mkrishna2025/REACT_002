@@ -66,6 +66,7 @@
 							<label>Country</label>
 							<select id="country" name="country" onChange={ event => {
 								this.state.country = event.target.value;
+								this.state.state = '';
 								var filteredItems = [];
 								for(var state of this.state.states){
 									if(state.country == this.state.country){

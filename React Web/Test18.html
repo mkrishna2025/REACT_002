@@ -1,0 +1,129 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class Student extends React.Component {
+			render(){
+				var student = this.props.item;
+				var isEdit = this.props.isEdit;
+				if(isEdit) {
+					return (
+					<tr>
+						<td><input type="text" value={this.props.item.name} /></td>
+						<td><input type="text" value={this.props.item.age} /></td>
+						<td><input type="text" value={this.props.item.city} /></td>
+					</tr>
+					);
+				} else {
+					return (
+					<tr>
+						<td>{this.props.item.name}</td>
+						<td>{this.props.item.age}</td>
+						<td>{this.props.item.city}</td>
+					</tr>
+					);
+				}
+				
+			}
+		}
+		
+		class Department extends React.Component {
+			render(){
+				var department = this.props.item;
+				return (
+					<tr>
+						<td>{department.name}</td>
+					</tr>
+				);
+			}
+		}
+		
+		class ListView extends React.Component {
+			render() {
+				var columns = this.props.columns;
+				var items = this.props.data;
+				var callBack = this.props.renderRow;
+				return (
+					<div>
+						{columns.map( column => <div> {column.display} <input type="text" />  </div> )}
+						<input type= "button" value="Search" />
+						<div>
+							<table style={{ border: "1px solid"}}>
+								<tr>
+									{columns.map(column => <td>{column.display}</td>)}
+								</tr>
+								<tbody>
+									{items.map(item => callBack(item) )}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				);
+			}
+		}
+		
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					students: [
+						{ name: "Archana", age: 20, city: 'Hyderabad'},
+						{ name: "Venkat", age: 20, city: 'Hyderabad'},
+						{ name: "Deepak", age: 33, city: 'Delhi'},
+						{ name: "Rajesh", age: 25, city: 'Hyderabad'},
+						{ name: "Arjun", age: 20, city: 'Vijayawada'}
+					],
+					studentColumns: [
+						{ key: "name", display: "Name", type: "string"},
+						{ key: "age", display: "Age", type: "int"},
+						{ key: "city", display: "City", type: "string"}
+					],
+					departments: [
+						{ name: "Electronics" },
+						{ name: "Computers" },
+						{ name: "IT" },
+						{ name: "Mechanical " },
+						{ name: "Civil" }
+					],
+					departmentColumns: [
+						{ key: "name", display: "Name", type: "string"}
+					]
+					
+				}
+			}
+			
+			renderStudentRow(student) {
+				//debugger;
+				return <Student item={student} isEdit={true}/>
+			}
+			
+			render(){
+				return (
+					<div>
+						<ListView 
+							columns = {this.state.studentColumns}
+							data = {this.state.students}
+							renderRow = { item => this.renderStudentRow(item) }
+						/>
+						<br/>
+						<br/>
+						<ListView 
+							columns = {this.state.departmentColumns}
+							data = {this.state.departments}
+							renderRow = { item => <Department item={item} />}
+						/>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<TestComponent />, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 
