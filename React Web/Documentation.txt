@@ -221,6 +221,10 @@ JSX
 <h3 style={{ color: "green" }}>
 
 Created Custom Table class => ListView
+https://reactjs.org/docs/cdn-links.html
+
+
+Created Custom Table class =>
 <ListView 
 	columns = {this.state.departmentColumns}
 	data = {this.state.departments}
@@ -234,9 +238,7 @@ React Native
 	/>
 	
 
-
-Latest CDN Links
-https://reactjs.org/docs/cdn-links.html	<ListView
+	<ListView
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <Text>{rowData}</Text>}
 	/>
@@ -280,6 +282,7 @@ class ReactDataGrid extends React.Component {
 		);
 	}
 }
+
 
 Master pages 
 	allow you to create a consistent look 
