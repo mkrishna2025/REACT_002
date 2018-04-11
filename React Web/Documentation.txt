@@ -280,3 +280,78 @@ class ReactDataGrid extends React.Component {
 		);
 	}
 }
+
+Master pages 
+	allow you to create a consistent look 
+	and behavior for all the pages (or group of pages) in web application.
+	provides a template for other pages, with shared layout and functionality. 
+	defines placeholders for the content, which can be overridden by content pages.
+
+Page 1	
+1 2 3
+4 5 6
+7 8 9
+
+Page 2
+1 2 3
+4 51 6
+7 8 9
+
+Composition => Creating small Components and reusing multiple small components under Main Conponent.
+AboutUs
+Header => Welcome to Demo
+Container/Center Panel => varies from one page to other
+Footer => Copyright information
+
+Contactus
+Header => Welcome to Demo
+Container/Center Panel => varies from one page to other
+Footer => Copyright information
+
+Using Master Page
+AboutUs
+Add Container as child page to Master Page/Template
+
+<Test a=1 b=2 c=3> <InnerComponent /> </Test>
+a, b, c are attributes to Test Component
+InnerComponent is a child to Test Component
+
+<Header />
+<Header></Header>
+	
+<table />
+<table><tr></tr><tr></tr></table>
+
+class table extends React.Component {
+	render() {
+		return (
+			<div>
+				{this.props.children}
+			</div>
+		);
+	}
+}
+
+this.props.children => 
+	if this.props.children is added inside any component(ComponentA).. 
+	In Instance of ComponentA, this.props.children is replace with the child nodes of instance.
+	
+	
+Supporting Master Pages/Templates
+Approach 1 => this.props.children
+Approach 2 => Custom Routing
+
+<Test {...x} /> => x is an object ... keys present inside x are passed as attributes to Test instance.
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

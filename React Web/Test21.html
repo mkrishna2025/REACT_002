@@ -1,0 +1,56 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class HomeScreen extends React.Component {
+			render() {
+				return (
+					<div> Welcome to {this.props.user}, {this.props.city}, {this.props.state}, {this.props.country}</div>
+				);
+			}
+		}
+	 
+		class Application extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				var student = {
+					user: "Deepak"
+				}
+				return (
+					<HomeScreen {...this.props} {...student} state="AndhraPradesh" country="India"/>
+				);
+			}
+		}
+		
+		class ApplicationOld extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				var user = this.props.user;
+				var city = this.props.city;
+				var state = this.props.state;
+				
+				state="AndhraPradesh";
+				var country = "India";
+				
+				return (
+					<HomeScreen user={user} city={city} state={state} country={country}/>
+				);
+			}
+		}
+		
+		
+ 		ReactDOM.render(<Application user="Neha Singh" city="Hyderabad" state="Telangana" />, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

@@ -1,0 +1,29 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<div> Welcome to Demo, {this.props.user}</div>
+				);
+			}
+		}
+		TestComponent.defaultProps = {
+			user: "Guest User"
+		}
+		
+ 		ReactDOM.render(<TestComponent/>, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

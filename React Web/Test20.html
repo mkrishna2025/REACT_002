@@ -1,0 +1,116 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class Header extends React.Component {
+			render() {
+				return (
+					<div> Welcome to Demo, {this.props.userName}, Vijayawada</div>
+				);
+			}
+		}
+		
+		class SideBar extends React.Component {
+			render() {
+				return (
+					<div> Left Menu</div>
+				);
+			}
+		}
+		class Footer extends React.Component {
+			render(){
+				return (
+					<div> Copyright @2008</div>
+				);
+			}
+		}
+		
+		class Student extends React.Component {
+			render(){
+				return (
+					<div> Welcome to Students</div>
+				);
+			}
+		}
+		
+		class Department extends React.Component {
+			render(){
+				return (
+					<div> Welcome to Department</div>
+				);
+			}
+		}
+		
+		class MasterPage extends React.Component {
+			render(){
+				return (
+					<div>
+						<Header userName={this.props.user} />
+						{this.props.children}
+						<SideBar />
+						<Footer/>
+					</div>
+				);
+			}
+		}
+	 
+		class Home extends React.Component {
+			render(){
+				return (
+					<MasterPage user={this.props.user}>
+						<Student />
+						<Department />
+					</MasterPage>
+				);
+				
+			}
+		}
+		class AboutUs extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<MasterPage user={this.props.user}>
+						This is About Us page.
+					</MasterPage>
+				);
+			}
+		}
+		
+		class Contactus extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<MasterPage user={this.props.user}>
+						This is Contact us page.
+					</MasterPage>
+				);
+			}
+		}
+		
+		class Help extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<MasterPage user={this.props.user}>
+						This is Help page.
+					</MasterPage>
+				);
+			}
+		}
+ 		ReactDOM.render(<Home user="Karthik"/>, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

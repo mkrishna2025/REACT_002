@@ -1,0 +1,74 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class Header extends React.Component {
+			render() {
+				return (
+					<div> Welcome to Demo, {this.props.userName}, Vijayawada</div>
+				);
+			}
+		}
+		class Footer extends React.Component {
+			render(){
+				return (
+					<div> Copyright @2008</div>
+				);
+			}
+		}
+	 
+		class AboutUs extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<div>
+						<Header userName={this.props.user} />
+						This is about us page.
+						<Footer/>
+					</div>
+				);
+			}
+		}
+		
+		class Contactus extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<div>
+						<Header userName={this.props.user} />
+						This is Contact us page.
+						<Footer/>
+					</div>
+				);
+			}
+		}
+		
+		class Help extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<div>
+						<Header userName={this.props.user} />
+						This is Help page.
+						<Footer/>
+					</div>
+				);
+			}
+		}
+ 		ReactDOM.render(<Help user="Karthik"/>, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 
