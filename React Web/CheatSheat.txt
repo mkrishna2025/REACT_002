@@ -1,0 +1,172 @@
+Item => 1
+<TestComponent user="Venkat" city="Delhi"/>
+
+Approach 1
+	var user = this.props.user;
+	var city = this.props.city;
+	
+Approach 2
+	var { city, user } = this.props;
+	
+Item => 2
+	var person = {
+		firstName: 'Karthik',
+		lastName: 'Kumar'
+	}
+
+Approach 1
+	var person_dump = {
+
+	};
+	for(var key in person){
+		person_dump[key] = person[key];
+	}
+	
+Approach 2
+	var person_dump2 = {...person};
+	
+	
+Item => 3
+
+	var student = {
+		fn: 'Prasanth',
+		ln: 'Kumar'
+	}
+	
+Approach 1
+
+	var student_dump = {
+	}
+	for(var key in student){
+		student_dump[key] = student[key];
+	}
+	student.ln = 'Reddy'; //overiding
+	student.city = 'Hyderabad'; // adding
+	
+Approach 2
+	var student_dump2 = {...student, ln: 'Reddy', city: 'Delhi'};
+
+Approach 3
+	var override = { ln: 'Reddy', city: 'Delhi' };
+	var student_dump3 = {...student, ...override};
+	
+Item => 4
+
+	var completeSet = {
+		fn: 'Neha',
+		ln: 'Singh',
+		city: 'Hyderabad',
+		ccNumber: 123456789,
+		txNumber: 2345
+	}
+
+Approach 1
+	var subset1 = {
+		fn: completeSet.fn,
+		ln: completeSet.ln,
+		city: completeSet.city
+	}
+	
+Approach 2
+	var subset2 = {
+	};
+	for(var key in completeSet){
+		if(key != 'ccNumber' && key != 'txNumber') {
+			subset2[key] = completeSet[key];
+		}
+	}
+	
+Approach 3
+	var { ccNumber, txNumber, ...subset3 } = {...completeSet }
+	var { ccNumber: CreditCard, txNumber: Transaction, ...subset4 } = {...completeSet }
+	new variables like CreditCard and Transaction are created
+	
+	
+Item => 5
+	<Grid>
+	  <Row />
+	  <Row />
+	  <Row />
+	</Grid>
+
+	class Grid extends React.Component {
+	  render() {
+		return <div>{this.props.children}</div>
+	  }
+	}
+	
+	
+Item => 6
+JSX will automatically remove whitespace on the beginning and ending of a line as well as blank lines. 
+It also condenses blank lines in the middle of string literals into one space.
+
+
+	<Grid>Hello world!</Grid>
+
+	<Grid>
+	  Hello world!
+	</Grid>
+
+	<Grid>
+	  Hello
+	  world!
+	</Grid>
+
+	<Grid>
+
+	  Hello world!
+	</Grid>
+
+	
+Item => 7
+	props.children can be any type, 
+		an array
+		a function
+		an object
+		
+	<MasterPage>
+	  <h1>First</h1>
+	</MasterPage>
+	
+	
+	<MasterPage>
+	  {() => <h1>First</h1>}
+	</MasterPage>
+
+Approach 1
+	{this.props.children}
+
+Approach 2
+	{React.Children.map(children, (child, i) => {
+	  return child;
+	})}
+
+Advantage:
+	{React.Children.map(children, (child, i) => {
+	  // Ignore the first child
+	  if (i < 1) return
+	  return child
+	})}
+
+Other API's
+
+API => React.Children.count
+React.Children.count(this.props.children) => renders number of elements passed.
+	
+	class ChildrenCounter extends React.Component {
+	  render() {
+		return <p>React.Children.count(this.props.children)</p>
+	  }
+	}
+	
+API => React.cloneElement
+	React elements are immutable(cant be updated).
+	React.cloneElement(element, {
+	  country: 'India'
+	});
+	
+Other Samples - https://reactjs.org/docs/react-api.html
+
+
+
+	

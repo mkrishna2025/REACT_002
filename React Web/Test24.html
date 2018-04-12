@@ -1,0 +1,124 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class IgnoreFirstChild extends React.Component {
+		  render() {
+			const children = this.props.children;
+			debugger;
+			return (
+			  <div>
+				{React.Children.map(children, (child, i) => {
+					//child.props.user = "Krishna";
+				  // Ignore the first child
+				  if (i < 1) return
+				  return child
+				})}
+			  </div>
+			)
+		  }
+		}
+
+		class TestComponent1 extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<IgnoreFirstChild>
+					  <h1>First, {this.props.user}</h1>
+					  <h1>Second, {this.props.user}</h1>
+					</IgnoreFirstChild>
+				);
+			}
+		}
+		
+		class TestComponent2 extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<IgnoreFirstChild>
+					  {() => <h1>First</h1>}
+					</IgnoreFirstChild>
+				);
+			}
+		}
+		
+		class Person extends React.Component {
+			render(){
+				return (
+					<div>Welcome to {this.props.user}, {this.props.country} </div>
+				);
+			}
+		}
+		
+		class MasterPage extends React.Component {
+			render(){
+				return ( 
+					<div>
+						Welcome to Demo...
+						<br/>
+						<br/>
+						{this.props.children}
+					</div>
+				);
+			}
+		}
+		
+		class MasterPage2 extends React.Component {
+			render(){
+				return ( 
+					<div>
+						Welcome to Demo...
+						<br/>
+						<br/>
+						{
+							React.Children.map(this.props.children, child => {
+								return React.cloneElement(child, {
+								  country: 'India'
+								})
+						    })
+					    }
+					</div>
+				);
+			}
+		}
+		
+		
+		class TestComponent3 extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				return (
+					<div>
+						<MasterPage>
+							<Person user="Narsingh" />
+							<Person user="Divya" />
+							<Person user ="Rakesh" />
+							<Person user="Deepthi" />
+						</MasterPage>
+						<MasterPage2>
+							<Person user="Narsingh" />
+							<Person user="Divya" />
+							<Person user ="Rakesh" />
+							<Person user="Deepthi" />
+						</MasterPage2>
+					</div>
+				);
+			}
+		} 
+		
+ 		ReactDOM.render(<TestComponent3 />, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 

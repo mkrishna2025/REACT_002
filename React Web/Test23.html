@@ -1,0 +1,94 @@
+<html> 
+ <header> 
+     <meta charset="utf-8" /> 
+     <script src="react.js"></script> 
+     <script src="react-dom.js"></script> 
+     <script src="babel.min.js"></script> 
+ </header> 
+ <body> 
+ 	<div id="root"> 
+ 	</div> 
+ 	 <script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+			}
+			render(){
+				var user1 = this.props.user;
+				var city1 = this.props.city;
+				
+				var { city, user } = this.props;
+				
+				
+				
+				var person = {
+					firstName: 'Karthik',
+					lastName: 'Kumar'
+				}
+				
+				var person_dump = {
+					
+				};
+				for(var key in person){
+					person_dump[key] = person[key];
+				}
+				
+				var person_dump2 = {...person};
+				
+				var student = {
+					fn: 'Prasanth',
+					ln: 'Kumar'
+				}
+				
+				var student_dump = {
+				}
+				for(var key in student){
+					student_dump[key] = student[key];
+				}
+				student.ln = 'Reddy'; //overiding
+				student.city = 'Hyderabad'; // adding
+				
+				var student_dump2 = {...student, ln: 'Reddy', city: 'Delhi'};
+				
+				var override = { ln: 'Reddy', city: 'Delhi' };
+				var student_dump3 = {...student, ...override};
+				
+				var completeSet = {
+					fn: 'Neha',
+					ln: 'Singh',
+					city: 'Hyderabad',
+					ccNumber: 123456789,
+					txNumber: 2345
+				}
+				
+				var subset1 = {
+					fn: completeSet.fn,
+					ln: completeSet.ln,
+					city: completeSet.city
+				}
+				
+				var subset2 = {
+				};
+				for(var key in completeSet){
+					if(key != 'ccNumber' && key != 'txNumber') {
+						subset2[key] = completeSet[key];
+					}
+				}
+				var { ccNumber, txNumber, ...subset3 } = {...completeSet }
+				var { ccNumber: CreditCard, txNumber: Transaction, ...subset4 } = {...completeSet }
+				debugger;
+				
+				return (
+					<div> Welcome to Demo, {this.props.user}, {city}</div>
+				);
+			}
+		}
+		TestComponent.defaultProps = {
+			user: "Guest User",
+			city: "Hyderabad"
+		}
+		
+ 		ReactDOM.render(<TestComponent user="Venkat" city="Delhi"/>, document.getElementById('root')); 
+ 	 </script> 
+ </body>  
+</html> 
