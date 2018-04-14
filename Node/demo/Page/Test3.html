@@ -1,0 +1,19 @@
+<html>
+<header>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</header>
+<body>
+	<div id="app">
+	</div>
+	 <script type="text/babel">
+		var user = React.createElement('h3', null, 'Karthik');
+		var city = <h3>Hyderabad</h3>;
+		
+		ReactDOM.render(<div><h1>Welcome to Demo</h1>, {user},{city}</div> , document.getElementById('app'));
+	 </script>
+</body>
+
+</html>

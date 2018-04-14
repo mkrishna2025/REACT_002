@@ -223,8 +223,6 @@ JSX
 Created Custom Table class => ListView
 https://reactjs.org/docs/cdn-links.html
 
-
-Created Custom Table class =>
 <ListView 
 	columns = {this.state.departmentColumns}
 	data = {this.state.departments}

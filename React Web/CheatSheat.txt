@@ -78,6 +78,7 @@ Approach 2
 	
 Approach 3
 	var { ccNumber, txNumber, ...subset3 } = {...completeSet }
+	
 	var { ccNumber: CreditCard, txNumber: Transaction, ...subset4 } = {...completeSet }
 	new variables like CreditCard and Transaction are created
 	
@@ -126,11 +127,16 @@ Item => 7
 		
 	<MasterPage>
 	  <h1>First</h1>
+	  <h1>Second</h1>
 	</MasterPage>
 	
 	
 	<MasterPage>
 	  {() => <h1>First</h1>}
+	</MasterPage>
+	
+	<MasterPage>
+	  {"Red"}
 	</MasterPage>
 
 Approach 1
@@ -161,11 +167,62 @@ React.Children.count(this.props.children) => renders number of elements passed.
 	
 API => React.cloneElement
 	React elements are immutable(cant be updated).
-	React.cloneElement(element, {
+	var newElement = React.cloneElement(element, {
 	  country: 'India'
 	});
 	
 Other Samples - https://reactjs.org/docs/react-api.html
+
+
+<BrowserHistory>
+	<Login>
+	<Home>
+</BrowserHistory>
+
+class BrowserHistory {
+	constructor(props){
+		this.state = {
+			history: new HistoryObject()
+		}
+	}
+	render(){
+		return (
+			<div>
+				{
+					React.Children.map(this.props.children, child => {
+						return React.cloneElement(child, {
+						  history: this.state.history
+						})
+					})
+				}
+			</div>
+		);
+	}
+}
+
+class Login extends React.Component {
+	onLoginClick(){
+		this.props.history.push('/home');
+	}
+	render(){
+		return (
+			<div>
+				Welcome to Login
+				<input type="button" value="Login" onClick="onLoginClick" />
+			</div>
+		);
+	}
+}
+class Home extends React.Component {
+	render(){
+		return (
+			<div> Welcome to Home Screen</div>
+		);
+	}
+}
+
+	
+
 
 
 

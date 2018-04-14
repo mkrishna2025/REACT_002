@@ -1,0 +1,52 @@
+Javascript
+	Function
+	Object - person ={}
+	Class - Person
+	Instance - var p1 = new Person(); 
+	Member/Variables
+		public - p1.age 
+		private - p1.age not accessible
+		global - age
+		const - age is accessible, but cant update
+		static - Person.age
+.NET => windows
+	
+Node
+	Server Side Framework
+	Completely written in Javascript
+	Can server any number of requests in same time.
+	Its a modular based programming.
+	Host => windows, Linux, Mac..
+	Ex: 
+		Reading/Writing Files
+		Working with Ports
+		
+Download => nodejs.org
+npm => Node Package Manager
+	responsible for adding/removing/updating modules
+	
+Creating a Project
+	1. Create a project folder
+	2. Open the project folder in cmd
+	3. run command => npm init
+
+Executing a project
+	node fileName.js
+
+JS
+	Node	
+		React with Node
+		React Native
+		Express
+		Mongoose
+		
+http.createServer(callBack).listen(port);
+		
+		
+		
+
+	
+		
+		
+	
+		
