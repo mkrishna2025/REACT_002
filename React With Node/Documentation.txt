@@ -1,0 +1,80 @@
+Node
+	ServerSide JS Framework
+	http module to render web pages
+	webpack is like a latest version to render web pages
+
+BoilerPlate
+	Common Code
+	Tools/Script
+		create-react-app
+
+npm - Modules
+	add - npm install moduleName
+	update
+	delete - npm uninstall moduleName
+
+Installing without BoilerPlate
+https://reactjs.org/docs/add-react-to-an-existing-app.html#installing-react
+
+
+Installing BoilerPlate => create-react-app
+https://reactjs.org/docs/add-react-to-a-new-app.html
+
+
+
+npm install -g create-react-app
+
+Creating a Project
+Node >= 6
+create-react-app projectName
+Else 
+npx create-react-app projectName
+
+Running a Project
+cd projectName
+npm start
+
+Project - Web
+	React
+	React Dom
+	Index.html
+
+Project - Node
+	npm init
+	npm install React
+	npm install React-Dom
+	index.html
+	
+
+Project Structure
+node_modules => Modules get installed into this folder
+package.json
+	Scripts
+		start => Start of the project using WebPack
+		build => to generate bundle which can be deployed directly
+		test => running Tests
+registerServiceWorker.js
+	Caches Images and CSS in browser so that when there is no or less internet, it will load these files from cache for faster access of pages.
+	
+	
+Starting Point
+public/index.html
+src/index.js
+
+Actual Starting Point 
+src/App.js
+
+ES5
+var React = require('react');
+
+ES6
+import React from 'react';
+
+
+https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+
+Running a project from GitHub
+1. cd projectName
+2. npm install
+3. npm start
