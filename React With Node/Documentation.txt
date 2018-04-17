@@ -8,11 +8,48 @@ BoilerPlate
 	Tools/Script
 		create-react-app
 
+npm install -g create-react-app
+
+create-react-app internal process =>
+	create-react-app projectName
+	
+	md projectName
+	cd projectName
+	npm init
+	generates files like index.html.. css... index.js and app.js
+	npm install react
+	npm install react-dom
+	npm install react-scripts
+
+Advantages of BoilerPlate scripts
+	Code Generation
+	
+	
 npm - Modules
+Commands
 	add - npm install moduleName
-	update
+	update - npm update moduleName
 	delete - npm uninstall moduleName
 
+1. Installing dependencies one by one
+	npm install react
+	npm install react-dom
+
+2. Installing multiple dependencies with single command
+	npm install react react-dom
+
+Points to remember
+1. It installs modules inside node_modules folder.
+2. It installs submodules required for that module.
+3. In each module, there should be package.json.
+4. We will never checkin node_modules folder. So when we download a project from source control, we must run command npm install to install all dependencies.
+5. Module can be added using npm install moduleName or add module manually to dependencies object of package.json and run npm install command.
+6. save is attribute to be used to insert module into dependencies section of package.json
+	npm install react --save
+7. save-dev is attribute to be used to insert module into devDependencies section of package.json. These modules I need in development stage only.
+	npm install babel --save-dev
+
+	
 Installing without BoilerPlate
 https://reactjs.org/docs/add-react-to-an-existing-app.html#installing-react
 
@@ -21,14 +58,11 @@ Installing BoilerPlate => create-react-app
 https://reactjs.org/docs/add-react-to-a-new-app.html
 
 
-
-npm install -g create-react-app
-
 Creating a Project
-Node >= 6
-create-react-app projectName
-Else 
+Node > 5.8
 npx create-react-app projectName
+Else 
+create-react-app projectName
 
 Running a Project
 cd projectName
@@ -73,8 +107,9 @@ import React from 'react';
 
 https://reactjs.org/docs/add-react-to-an-existing-app.html
 
-
-Running a project from GitHub
-1. cd projectName
-2. npm install
-3. npm start
+Project Structure
+	src
+		containers => screens/pages
+		images => assets
+		util => Code related to utilities like formatting, convertStringtoNumber
+	
