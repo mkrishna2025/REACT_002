@@ -1,0 +1,52 @@
+FeedBackSystem
+    Login
+        Home
+            FeedBack
+    `       Queries
+            Map - Current Location
+			Map - Route between 2 places
+            Students => Accessible to Admin only
+    Signup
+
+Features
+    User must redirect to login screen if user is not authenticated.
+    FeedBack page to submit the FeedBack.
+    Map to show markers or current location.
+    Role => Admin, User
+    Students screen to show list of Students. Admin only can access it.
+    Students => Download to Excel, Print Students
+    Token Authentication
+
+Advanced
+    Facebook/Google/Linkedin Login
+    OTP login
+
+Third Party Modules
+    BootStrap/Material Design
+    
+
+
+Routing => In order to support routing for our Application, Add our Main/Top Component to BrowserRouter as a child.
+module => npm install react-router-dom --save
+
+/r1
+/r2
+/r3
+/r4
+r1/r9 => D1, D9
+
+<Route path="/r1" component={D1} />
+<Route path="/r2" component={D2} />
+<Route path="/r2" component={D5} />
+<Route path="/r3" component={D3} />
+<Route path="/r4" component={D4} />
+<Route path="/r1/r9" component={D9} />
+
+Routers
+	BrowserRouter => <BrowserRouter><App /></BrowserRouter>
+	HashRouter => <HashRouter><App /></HashRouter>
+	
+HashRouter is mostly used for static pages.
+	
+
+

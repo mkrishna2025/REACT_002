@@ -87,6 +87,7 @@ package.json
 		start => Start of the project using WebPack
 		build => to generate bundle which can be deployed directly
 		test => running Tests
+		eject => it will come out of create-react-app
 registerServiceWorker.js
 	Caches Images and CSS in browser so that when there is no or less internet, it will load these files from cache for faster access of pages.
 	
@@ -113,3 +114,25 @@ Project Structure
 		images => assets
 		util => Code related to utilities like formatting, convertStringtoNumber
 	
+
+Routing => In order to support routing for our Application, Add our Main/Top Component to BrowserRouter as a child.
+module => npm install react-router-dom --save
+
+/r1
+/r2
+/r3
+/r4
+r1/r9 => D1, D9
+
+<Route path="/r1" component={D1} />
+<Route path="/r2" component={D2} />
+<Route path="/r2" component={D5} />
+<Route path="/r3" component={D3} />
+<Route path="/r4" component={D4} />
+<Route path="/r1/r9" component={D9} />
+
+Routers
+	BrowserRouter => <BrowserRouter><App /></BrowserRouter>
+	HashRouter => <HashRouter><App /></HashRouter>
+	
+HashRouter is mostly used for static pages.
