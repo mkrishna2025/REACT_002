@@ -49,7 +49,7 @@ class LoginScreen extends React.Component {
         var style = { color: "blue" };
         var redStyle =  { color: "red" };
         return (
-            <div>
+            <div class="loginDiv">
                 <h3>{this.props.welcomeText}</h3>
                 <div>
                     <label>User Name</label>

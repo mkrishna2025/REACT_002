@@ -47,6 +47,29 @@ Routers
 	HashRouter => <HashRouter><App /></HashRouter>
 	
 HashRouter is mostly used for static pages.
-	
 
+HTML
+<a href="/home"> Home</a>
 
+React Routing
+<Link to="/home">Home</Link>
+
+class Header extends Component {
+    render() {
+        return (
+        <div> This is Header 
+            <ul>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/students">Students</Link></li>
+                <li><Link to="/FaQ">Queries</Link></li>
+            </ul>
+        </div>
+        );
+    }
+}
+
+// html style
+text-align: 'center'
+
+// jsx
+textAlign: 'center'
