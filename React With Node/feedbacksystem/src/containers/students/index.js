@@ -38,7 +38,7 @@ export default class Students extends Component {
     }
     render() {
       return (
-        <MasterPage>
+        <div>
             Welcome to Students
             <br/>
             <br/>
@@ -49,7 +49,7 @@ export default class Students extends Component {
               minRows={2}
             />
             For More information, please refer <a href="https://github.com/react-tools/react-table"> React Table</a>
-        </MasterPage>    
+        </div>    
       );
     }
 }

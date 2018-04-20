@@ -41,6 +41,12 @@ class LoginScreen extends React.Component {
                 password: this.state.password
             }
             alert(JSON.stringify(json));
+            if(this.state.userName == 'admin'){
+                this.props.history.push('admin');
+            } else {
+                this.props.history.push('students');
+            }
+            
         } else {
             this.setState( { errorUserName : errorMessageForUserName, errorPassword: errorMessageForPassword, errorMessages: messages });
         }

@@ -73,3 +73,79 @@ text-align: 'center'
 
 // jsx
 textAlign: 'center'
+
+Responsive Web Pages
+	BootStrap
+	Material Design
+
+Material Design
+	Google
+	
+	
+Routing
+// Approach 1
+<Route path="/students" component={Students}/>
+
+// Approach 2
+<Route path="/students" render={(props) => <Students {...props} /> } />
+
+	
+Master Pages
+// Approach 1
+
+<Route path="/students" component={Students}/>
+
+render() {
+	<MasterPage>
+		Welcome To Students
+		.... table
+	</MasterPage>
+}
+
+
+// Approach 2
+<Route path="/students" render={ (props) =>
+  <MasterPage>
+   <Students {...props} />
+  </MasterPage>
+}/>
+
+render() {
+	<div>
+		Welcome To Students
+		.... table
+	</div>
+}
+
+Backend Calls
+Authentication
+Authorization
+Life Cycle
+Auth0 Authentication - Gmail 
+JQuery
+React API => Fragment
+React Test Case
+Signup Form/Submitting Data
+Functional Access => Dynamic Links, Access to Pages
+How to pick Git Hub Modules over thousands of modules
+Google Maps
+Maps Direction from A to B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
