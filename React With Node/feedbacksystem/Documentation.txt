@@ -118,6 +118,28 @@ render() {
 }
 
 Backend Calls
+http://trainingkit.azurewebsites.net/api/Users/CheckUserExists
+	username => admin
+	password => admin
+
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees
+
+	
+fetch(url, attributes).then().then().then().then().catch();
+	
+If credentials are valid => data: true, success: true
+If credentials are invalid => data: false, success: true
+if there is any network or other problem => success: false, error: ''
+
+Life Cycle
+	constructor => default values
+	componentWillMount => subscriptions like Notifications
+	render => rendering
+	componentDidMount => for backend calls to load data
+	componentWillUnMount => unscriptions
+
+
+Backend Calls
 Authentication
 Authorization
 Life Cycle
@@ -130,7 +152,8 @@ Functional Access => Dynamic Links, Access to Pages
 How to pick Git Hub Modules over thousands of modules
 Google Maps
 Maps Direction from A to B
-
+LazyLoading
+Cache
 
 
 

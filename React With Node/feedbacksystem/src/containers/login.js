@@ -17,7 +17,6 @@ class LoginScreen extends React.Component {
     
     loginClick(){
         var isValid = true;
-        debugger;
         var messages = [];
         
         var errorMessageForUserName = '';
@@ -41,12 +40,38 @@ class LoginScreen extends React.Component {
                 password: this.state.password
             }
             alert(JSON.stringify(json));
-            if(this.state.userName == 'admin'){
-                this.props.history.push('admin');
-            } else {
-                this.props.history.push('students');
-            }
             
+            var data = new FormData();
+            data.append('username', this.state.userName);
+            data.append('password', this.state.password);
+
+            fetch('http://trainingkit.azurewebsites.net/api/Users/CheckUserExists', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if(response.status == 200){
+                    return response.json();
+                }
+            })
+            .then(responseJson => {
+                if(responseJson.success && responseJson.data){
+                    if(this.state.userName == 'admin'){
+                        this.props.history.push('admin');
+                    } else {
+                        this.props.history.push('students');
+                    }
+                } else {
+                    alert('Please check Credentials');
+                }
+            })
+            .catch(exception =>{
+                debugger;
+            });
+
+            
+
+
         } else {
             this.setState( { errorUserName : errorMessageForUserName, errorPassword: errorMessageForPassword, errorMessages: messages });
         }

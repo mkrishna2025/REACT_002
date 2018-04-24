@@ -10,6 +10,7 @@ import ContactUs from './containers/contactus';
 import Map from './containers/map';
 import MasterPage from './components/masterpage';
 import StudentDetail from './containers/studentdetail';
+import Attendees from './containers/attendees';
 
 import { Route, Switch } from 'react-router-dom'; 
 
@@ -33,6 +34,7 @@ class App2 extends Component {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/home" component={Home} />
+        <Route path="/attendees" component={Attendees} />
         <Route exact path="/students" render={ (props) =>
           <MasterPage>
            <Students {...props} />
