@@ -138,25 +138,35 @@ Life Cycle
 	componentDidMount => for backend calls to load data
 	componentWillUnMount => unscriptions
 
+Modal Popup => http://reactcommunity.org/react-modal/#usage
+
+Maps
+https://www.npmjs.com/package/react-gmaps
 
 Backend Calls
+Life Cycle
+Signup Form/Submitting Data
+Google Maps
+
+
 Authentication
 Authorization
-Life Cycle
 Auth0 Authentication - Gmail 
 JQuery
 React API => Fragment
 React Test Case
-Signup Form/Submitting Data
 Functional Access => Dynamic Links, Access to Pages
 How to pick Git Hub Modules over thousands of modules
-Google Maps
 Maps Direction from A to B
 LazyLoading
 Cache
 
 
-
+class Gmaps {
+	render(){
+		return <div>{this.props.children}</div>
+	}
+}
 
 
 

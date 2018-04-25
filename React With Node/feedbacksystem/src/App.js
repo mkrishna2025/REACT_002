@@ -8,6 +8,7 @@ import Students from './containers/students';
 import Admin from './containers/admin';
 import ContactUs from './containers/contactus';
 import Map from './containers/map';
+import Branches from './containers/branches';
 import MasterPage from './components/masterpage';
 import StudentDetail from './containers/studentdetail';
 import Attendees from './containers/attendees';
@@ -45,7 +46,16 @@ class App2 extends Component {
         }/>
         <Route path="/admin" component={Admin}/>
         <Route path="/contactus" component={ContactUs} />
-        <Route path="/map" component={Map} />
+        <Route exact path="/map" render={ (props) =>
+          <MasterPage>
+           <Map {...props} />
+          </MasterPage>
+        }/>
+        <Route exact path="/branches" render={ (props) =>
+          <MasterPage>
+           <Branches {...props} />
+          </MasterPage>
+        }/>
         <Route path="/*" component={NotImplemented} />
       </Switch>
     );

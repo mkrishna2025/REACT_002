@@ -4,6 +4,7 @@ import Slider from 'material-ui/Slider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Students from '../students';
+import Attendees from '../attendees';
 
 const styles = {
   headline: {
@@ -21,16 +22,11 @@ function handleActive(tab) {
 const TabsExampleSimple = () => (
     <MuiThemeProvider>
   <Tabs>
+    <Tab label="Attendees" >
+      <Attendees />
+    </Tab>
     <Tab label="Students" >
         <Students />
-    </Tab>
-    <Tab label="Add Student" >
-      <div>
-        <h2 style={styles.headline}>Tab Two</h2>
-        <p>
-          This is another example tab.
-        </p>
-      </div>
     </Tab>
     <Tab
       label="FeedBack"
