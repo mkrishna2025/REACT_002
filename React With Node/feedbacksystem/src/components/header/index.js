@@ -4,6 +4,13 @@ import { Link, NavLink } from 'react-router-dom';
 import './header.css';
 
 export default class Header extends React.Component {
+    constructor(props){
+        super(props);
+        var links = JSON.parse(sessionStorage.getItem('menu'));
+        this.state = {
+            links: links
+        }
+    }
     render(){
         return (
             <div>
@@ -13,11 +20,9 @@ export default class Header extends React.Component {
             </div>
             <div class="header">
                 <ul>
-                <li><NavLink  to="home"  activeClassName="active"  activeStyle={{color:"red"}}>Home</NavLink ></li>
-                <li><Link to="students" activeStyle={{color:"red"}}>Students</Link></li>
-                <li><Link to="map" activeStyle={{color:"red"}}>Map</Link></li>
-                <li><Link to="branches" activeStyle={{color:"red"}}>Branches</Link></li>
-                <li><Link to="aboutus" activeStyle={{color:"red"}}>About Us</Link></li>
+                    {this.state.links.map(link => {
+                        return <li><Link to={link.Path} activeStyle={{color:"red"}}>{link.Label}</Link></li>
+                    })}
                 </ul>
             </div>
         </div>

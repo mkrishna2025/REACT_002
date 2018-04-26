@@ -111,13 +111,32 @@ class LoginScreen extends React.Component {
                 }
             })
             .then(responseJson => {
-                if(responseJson.success && responseJson.data){
-                    var name = responseJson.data.userName;
+                if(responseJson.success && responseJson.data.IsValid){
+                    var data = responseJson.data;
+                    var name = data.UserName;
+                    var role = data.Role;
+                    sessionStorage.setItem('menu', JSON.stringify(data.Menu));
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    sessionStorage.setItem('role', role);
+
                     this.props.history.push({
                         pathname: '/students',
                         search: 'query=react&searchIn=google',
                         params: {userName: name, address: {line1: 'Ameerpet', line2: 'HYD'} }
                     });
+                    /*if(role == 'Admin') {
+                        this.props.history.push({
+                            pathname:'/admin',
+                            params: { 'userName': name }
+                        });
+                    } else {
+                        this.props.history.push({
+                            pathname: '/students',
+                            search: 'query=react&searchIn=google',
+                            params: {userName: name, address: {line1: 'Ameerpet', line2: 'HYD'} }
+                        });
+                    }*/
+                    
 
                     /*if(this.state.userName == 'admin'){
                         this.props.history.push('admin');

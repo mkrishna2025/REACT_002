@@ -13,8 +13,14 @@ import MasterPage from './components/masterpage';
 import StudentDetail from './containers/studentdetail';
 import Attendees from './containers/attendees';
 
-import { Route, Switch } from 'react-router-dom'; 
+import { Route, Switch, Redirect } from 'react-router-dom'; 
 
+class UnAuthorized extends Component {
+  render() {
+    debugger;
+    return (<div> UnAuthorized </div>)
+  }
+}
 class App extends Component {
   render() {
     return (
@@ -29,33 +35,78 @@ class App extends Component {
   }
 }
 
+const CustomRoute = (props) => <Route {...props} />
+
+const CustomRoute2 = ({component: DynamicComponent, ...rest}) => 
+    <Route {...rest} component={DynamicComponent}/>
+
+const CustomRoute3 = ({component: DynamicComponent, ...rest}) =>
+    <Route {...rest} render={props =>{
+      return <DynamicComponent {...props} />
+    }}/>
+/*
+to debug and see props and rest
+const CustomRoute3 = ({component: DynamicComponent, ...rest}) => {
+  debugger;
+  return <Route {...rest} render={props =>{
+    debugger;
+    return <DynamicComponent {...props} />
+  }}/>
+}
+*/
+
+const MasterPageRoute = ({component: DynamicComponent, ...rest}) => 
+    <Route {...rest} render={props =>{
+      return <MasterPage><DynamicComponent {...props} /></MasterPage>
+  }}/>
+
+const MasterPageAuthenticatedRoute = ({component: DynamicComponent, ...rest}) => 
+    <Route {...rest} render={props =>{
+      if(sessionStorage.getItem('isLoggedIn') == "true"){
+        return <MasterPage><DynamicComponent {...props} /></MasterPage>
+      } else {
+        return <Redirect to="/" />
+      }
+  }}/>
+
+const AuthenticatedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      return <DynamicComponent {...props} />
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
+const MasterPageUnthorizedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      if(sessionStorage.getItem('role') == "Admin"){
+        return <MasterPage>
+                <DynamicComponent {...props} />
+              </MasterPage>
+      } else {
+        return <Redirect to="/unAuthorized" />
+      }
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
 class App2 extends Component {
   render() {
     return (
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/home" component={Home} />
-        <Route path="/attendees" component={Attendees} />
-        <Route exact path="/students" render={ (props) =>
-          <MasterPage>
-           <Students {...props} />
-          </MasterPage>
-        }/>
-         <Route path="/students/detail" render={ (props) =>
-          <StudentDetail {...props} />
-        }/>
-        <Route path="/admin" component={Admin}/>
-        <Route path="/contactus" component={ContactUs} />
-        <Route exact path="/map" render={ (props) =>
-          <MasterPage>
-           <Map {...props} />
-          </MasterPage>
-        }/>
-        <Route exact path="/branches" render={ (props) =>
-          <MasterPage>
-           <Branches {...props} />
-          </MasterPage>
-        }/>
+        <MasterPageAuthenticatedRoute path="/home" component={Home} />
+        <AuthenticatedRoute path="/attendees" component={Attendees}/>
+        <MasterPageUnthorizedRoute exact path="/students" component={Students}/>
+        <MasterPageUnthorizedRoute exact path="/students/detail" component={StudentDetail}/>
+        <AuthenticatedRoute path="/unAuthorized" component={UnAuthorized} />
+        <AuthenticatedRoute path="/admin" component={Admin} />
+        <MasterPageAuthenticatedRoute path="/contactus" component={ContactUs} />
+        <MasterPageAuthenticatedRoute exact path="/map" component={Map} />
+        <MasterPageAuthenticatedRoute exact path="/branches" component={Branches} />
         <Route path="/*" component={NotImplemented} />
       </Switch>
     );
