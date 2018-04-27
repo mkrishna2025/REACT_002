@@ -147,15 +147,15 @@ Backend Calls
 Life Cycle
 Signup Form/Submitting Data
 Google Maps
-
-
 Authentication
 Authorization
+Functional Access => Dynamic Links, Access to Pages
+
+
 Auth0 Authentication - Gmail 
 JQuery
 React API => Fragment
 React Test Case
-Functional Access => Dynamic Links, Access to Pages
 How to pick Git Hub Modules over thousands of modules
 Maps Direction from A to B
 LazyLoading
@@ -168,12 +168,23 @@ class Gmaps {
 	}
 }
 
+Using values of one screen in Other screen
+	Params
+	Cache 
+		SessionStorage
+
+<Route path="/attendees" component={Attendees} />
+
+<Route path="/attendees" render={props => {
+	return <Attendees {...props} />
+}} />
 
 
+var CustomRoute_Old = function(props){
+  return <Route {...props} />
+}
 
-
-
-
+const CustomRoute = (props) => <Route {...props} />
 
 
 
