@@ -57,13 +57,13 @@ const CustomRoute3 = ({component: DynamicComponent, ...rest}) => {
 
 const MasterPageRoute = ({component: DynamicComponent, ...rest}) => 
     <Route {...rest} render={props =>{
-      return <MasterPage><DynamicComponent {...props} /></MasterPage>
+      return <MasterPage {...props}><DynamicComponent {...props} /></MasterPage>
   }}/>
 
 const MasterPageAuthenticatedRoute = ({component: DynamicComponent, ...rest}) => 
     <Route {...rest} render={props =>{
       if(sessionStorage.getItem('isLoggedIn') == "true"){
-        return <MasterPage><DynamicComponent {...props} /></MasterPage>
+        return <MasterPage {...props}><DynamicComponent {...props} /></MasterPage>
       } else {
         return <Redirect to="/" />
       }
@@ -78,11 +78,24 @@ const AuthenticatedRoute = ({component: DynamicComponent, ...rest}) =>
     }
 }}/>
 
+const AuthenticatedAuthorizedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      if(sessionStorage.getItem('role') == "Admin"){
+        return <DynamicComponent {...props} />
+      } else {
+        return <Redirect to="/unAuthorized" />
+      }
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
 const MasterPageUnthorizedRoute = ({component: DynamicComponent, ...rest}) => 
   <Route {...rest} render={props =>{
     if(sessionStorage.getItem('isLoggedIn') == "true"){
       if(sessionStorage.getItem('role') == "Admin"){
-        return <MasterPage>
+        return <MasterPage {...props}>
                 <DynamicComponent {...props} />
               </MasterPage>
       } else {
@@ -103,7 +116,7 @@ class App2 extends Component {
         <MasterPageUnthorizedRoute exact path="/students" component={Students}/>
         <MasterPageUnthorizedRoute exact path="/students/detail" component={StudentDetail}/>
         <AuthenticatedRoute path="/unAuthorized" component={UnAuthorized} />
-        <AuthenticatedRoute path="/admin" component={Admin} />
+        <AuthenticatedAuthorizedRoute path="/admin" component={Admin} />
         <MasterPageAuthenticatedRoute path="/contactus" component={ContactUs} />
         <MasterPageAuthenticatedRoute exact path="/map" component={Map} />
         <MasterPageAuthenticatedRoute exact path="/branches" component={Branches} />

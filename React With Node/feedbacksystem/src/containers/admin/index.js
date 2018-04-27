@@ -19,7 +19,13 @@ function handleActive(tab) {
   alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
 }
 
-const TabsExampleSimple = () => (
+function logOut(props) {
+    sessionStorage.clear();
+    props.history.goBack();
+}
+
+const TabsExampleSimple = (props) => (
+  <div>
     <MuiThemeProvider>
   <Tabs>
     <Tab label="Attendees" >
@@ -42,6 +48,8 @@ const TabsExampleSimple = () => (
     </Tab>
   </Tabs>
   </MuiThemeProvider>
+  <input type='button' value="Logout" onClick={logOut.bind(this, props)}/>
+  </div>
 );
 
 export default TabsExampleSimple;

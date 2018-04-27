@@ -37,13 +37,10 @@ export default class Students extends Component {
         });
     }
     render() {
-      var params = this.props.location.params;
-      const queryParams = new URLSearchParams(this.props.location.search);
-      var query = queryParams.get('query');
-      var searchIn = queryParams.get('searchIn');
+      const userName = sessionStorage.getItem('userName');
       return (
         <div>
-            Welcome {params.userName}, {params.address.line1}, {params.address.line2}
+            Welcome {userName}
             <br/>
             <br/>
             <input type="text" onChange={this.onSearch.bind(this)}/> Search

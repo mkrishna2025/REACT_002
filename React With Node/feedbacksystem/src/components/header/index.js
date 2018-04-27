@@ -17,6 +17,7 @@ export default class Header extends React.Component {
             <div class="title">
                 <img src={logo} />
                 <h1>{this.props.title}</h1>
+                
             </div>
             <div class="header">
                 <ul>
