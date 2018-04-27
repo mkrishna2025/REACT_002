@@ -9,7 +9,7 @@ import { RingLoader } from 'react-spinners';
 export default class Attendees extends Component {
     constructor(props){
       super(props);
-      alert('constructor');
+      //alert('constructor');
       this.state = {
         attendees: [],
         loading: false,
@@ -23,11 +23,11 @@ export default class Attendees extends Component {
       }
     }
     componentWillMount(){
-        alert('componentWillMount');
+        //alert('componentWillMount');
     }
 
     componentDidMount(){
-        alert('componentDidMount');
+        //alert('componentDidMount');
         this.setState({ loading: true });
         fetch('http://trainingkit.azurewebsites.net/api/Users/GetAttendees')
         .then(response => {
@@ -49,7 +49,7 @@ export default class Attendees extends Component {
     }
 
     render() {
-        alert('render');
+        //alert('render');
         return (
             <div>
                 Welcome to Attendees
