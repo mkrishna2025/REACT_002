@@ -27,7 +27,6 @@ Third Party Modules
 
 
 Routing => In order to support routing for our Application, Add our Main/Top Component to BrowserRouter as a child.
-module => npm install react-router-dom --save
 
 /r1
 /r2
@@ -186,10 +185,35 @@ var CustomRoute_Old = function(props){
 
 const CustomRoute = (props) => <Route {...props} />
 
+Complete List of Modules
+https://react.parts/
+
+
+3rd party UI 
+Enterprize
+	examples.sencha.com
+	https://www.jqwidgets.com/react/
+	
+Choosing Module
+1. Check for react version in package.json
+2. Check when it was recently
+3. Lesser number of bugs
+
+
+Complete List
+https://react.parts
 
 
 
+Free Admin Template
+https://coreui.io/react/
+https://github.com/coreui/coreui-free-react-admin-template
+
+Admin Templates
+https://wrapbootstrap.com/
+https://www.strapui.com/
 
 
+https://reactjs.org/docs/reconciliation.html
 
 
