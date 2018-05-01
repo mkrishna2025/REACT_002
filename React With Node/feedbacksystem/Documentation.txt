@@ -215,5 +215,21 @@ https://www.strapui.com/
 
 
 https://reactjs.org/docs/reconciliation.html
+https://reactjs.org/docs/react-api.html
 
 
+
+https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+
+
+Debugging in Visual Studio Code
+https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+
+Profile
+	Name
+	Mobile
+	Email
+	Address
+	Current Batches
+	
+	
