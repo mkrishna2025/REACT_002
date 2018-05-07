@@ -1,0 +1,235 @@
+FeedBackSystem
+    Login
+        Home
+            FeedBack
+    `       Queries
+            Map - Current Location
+			Map - Route between 2 places
+            Students => Accessible to Admin only
+    Signup
+
+Features
+    User must redirect to login screen if user is not authenticated.
+    FeedBack page to submit the FeedBack.
+    Map to show markers or current location.
+    Role => Admin, User
+    Students screen to show list of Students. Admin only can access it.
+    Students => Download to Excel, Print Students
+    Token Authentication
+
+Advanced
+    Facebook/Google/Linkedin Login
+    OTP login
+
+Third Party Modules
+    BootStrap/Material Design
+    
+
+
+Routing => In order to support routing for our Application, Add our Main/Top Component to BrowserRouter as a child.
+
+/r1
+/r2
+/r3
+/r4
+r1/r9 => D1, D9
+
+<Route path="/r1" component={D1} />
+<Route path="/r2" component={D2} />
+<Route path="/r2" component={D5} />
+<Route path="/r3" component={D3} />
+<Route path="/r4" component={D4} />
+<Route path="/r1/r9" component={D9} />
+
+Routers
+	BrowserRouter => <BrowserRouter><App /></BrowserRouter>
+	HashRouter => <HashRouter><App /></HashRouter>
+	
+HashRouter is mostly used for static pages.
+
+HTML
+<a href="/home"> Home</a>
+
+React Routing
+<Link to="/home">Home</Link>
+
+class Header extends Component {
+    render() {
+        return (
+        <div> This is Header 
+            <ul>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/students">Students</Link></li>
+                <li><Link to="/FaQ">Queries</Link></li>
+            </ul>
+        </div>
+        );
+    }
+}
+
+// html style
+text-align: 'center'
+
+// jsx
+textAlign: 'center'
+
+Responsive Web Pages
+	BootStrap
+	Material Design
+
+Material Design
+	Google
+	
+	
+Routing
+// Approach 1
+<Route path="/students" component={Students}/>
+
+// Approach 2
+<Route path="/students" render={(props) => <Students {...props} /> } />
+
+	
+Master Pages
+// Approach 1
+
+<Route path="/students" component={Students}/>
+
+render() {
+	<MasterPage>
+		Welcome To Students
+		.... table
+	</MasterPage>
+}
+
+
+// Approach 2
+<Route path="/students" render={ (props) =>
+  <MasterPage>
+   <Students {...props} />
+  </MasterPage>
+}/>
+
+render() {
+	<div>
+		Welcome To Students
+		.... table
+	</div>
+}
+
+Backend Calls
+http://trainingkit.azurewebsites.net/api/Users/CheckUserExists
+	username => admin
+	password => admin
+
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees
+
+	
+fetch(url, attributes).then().then().then().then().catch();
+	
+If credentials are valid => data: true, success: true
+If credentials are invalid => data: false, success: true
+if there is any network or other problem => success: false, error: ''
+
+Life Cycle
+	constructor => default values
+	componentWillMount => subscriptions like Notifications
+	render => rendering
+	componentDidMount => for backend calls to load data
+	componentWillUnMount => unscriptions
+
+Modal Popup => http://reactcommunity.org/react-modal/#usage
+
+Maps
+https://www.npmjs.com/package/react-gmaps
+
+Backend Calls
+Life Cycle
+Signup Form/Submitting Data
+Google Maps
+Authentication
+Authorization
+Functional Access => Dynamic Links, Access to Pages
+
+
+Auth0 Authentication - Gmail 
+JQuery
+React API => Fragment
+React Test Case
+How to pick Git Hub Modules over thousands of modules
+Maps Direction from A to B
+LazyLoading
+Cache
+
+
+class Gmaps {
+	render(){
+		return <div>{this.props.children}</div>
+	}
+}
+
+Using values of one screen in Other screen
+	Params
+	Cache 
+		SessionStorage
+
+<Route path="/attendees" component={Attendees} />
+
+<Route path="/attendees" render={props => {
+	return <Attendees {...props} />
+}} />
+
+
+var CustomRoute_Old = function(props){
+  return <Route {...props} />
+}
+
+const CustomRoute = (props) => <Route {...props} />
+
+Complete List of Modules
+https://react.parts/
+
+
+3rd party UI 
+Enterprize
+	examples.sencha.com
+	https://www.jqwidgets.com/react/
+	
+Choosing Module
+1. Check for react version in package.json
+2. Check when it was recently
+3. Lesser number of bugs
+
+
+Complete List
+https://react.parts
+
+
+
+Free Admin Template
+https://coreui.io/react/
+https://github.com/coreui/coreui-free-react-admin-template
+
+Admin Templates
+https://wrapbootstrap.com/
+https://www.strapui.com/
+
+
+https://reactjs.org/docs/reconciliation.html
+https://reactjs.org/docs/react-api.html
+
+
+
+https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+
+
+Debugging in Visual Studio Code
+https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+
+Profile
+	Name
+	Mobile
+	Email
+	Address
+	Current Batches
+	
+	

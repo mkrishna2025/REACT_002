@@ -1,0 +1,44 @@
+img {
+    width: 110PX;
+    float: left;
+    margin: 0 100px 0 0;
+  }
+  
+  ul>li{
+    display: inline;
+    margin: 0 20px;
+    float: left;
+    padding: 6px 0 0 0;
+    text-decoration: 'none';
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  a:visited {
+      color: green;
+  }
+  
+  .title {
+    width: 100%;
+    color: rebeccapurple;
+    padding: 5px 33px 10px 23px;
+    margin: 10px;
+    float: left;
+    height: auto;
+    border-radius: 5px;
+    background-color: violet;
+  }
+  
+  .header {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    padding-bottom: 30px;
+    font-size: 16px;
+    float: left;
+    color: rebeccapurple;
+    border-radius: 5px;
+    background-color: yellowgreen;
+  }

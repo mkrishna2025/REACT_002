@@ -1,0 +1,30 @@
+https://www.valentinog.com/blog/react-redux-tutorial-beginners/#React_Redux_tutorial_who_this_guide_is_for
+
+npm install redux --save
+
+Create a new file named index.js in src/store and finally initialize the store:
+
+Add Reducer 
+
+Add Actions
+
+Add Constants
+
+Add ReduxTest
+
+import reduxtest in index.js to test it browser window
+
+getState for accessing the current state of the application
+dispatch for dispatching an action
+subscribe for listening on state changes
+
+store.getState()
+
+store.subscribe(() => console.log('Look ma, Redux!!'))
+
+store.dispatch( addArticle({ name: 'React Redux Tutorial for Beginners', id: 1 }) )
+
+store.getState()
+
+npm install react-redux --save
+
