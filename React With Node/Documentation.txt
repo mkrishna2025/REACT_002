@@ -113,6 +113,7 @@ Project Structure
 		containers => screens/pages
 		images => assets
 		util => Code related to utilities like formatting, convertStringtoNumber
+		components => reusable components
 	
 
 Routing => In order to support routing for our Application, Add our Main/Top Component to BrowserRouter as a child.

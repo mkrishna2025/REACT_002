@@ -12,7 +12,7 @@ import Branches from './containers/branches';
 import MasterPage from './components/masterpage';
 import StudentDetail from './containers/studentdetail';
 import Attendees from './containers/attendees';
-
+import CheckBoxSample from './containers/FormCheckbox/search';
 import { Route, Switch, Redirect } from 'react-router-dom'; 
 
 class UnAuthorized extends Component {
@@ -111,6 +111,7 @@ class App2 extends Component {
     return (
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/form" component={CheckBoxSample} />
         <MasterPageAuthenticatedRoute path="/home" component={Home} />
         <AuthenticatedRoute path="/attendees" component={Attendees}/>
         <MasterPageUnthorizedRoute exact path="/students" component={Students}/>
