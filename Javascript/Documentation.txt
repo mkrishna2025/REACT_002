@@ -256,7 +256,22 @@ for(var student of students){
 }
 
 break -> stops iteration of of further code and next indexes
+// Below code prints only first item and stops execution when index is 1
+for(var index in students){
+	if(index == 1){
+    	break;
+	}
+	console.log(students[index]);
+}
+
 continue -> stop execution of further code and continues with next index
+// Below code stops execution and continues to next item when index is 1.
+for(var index in students){
+	if(index == 1){
+    	continue;
+	}
+	console.log(students[index]);
+}
 
 // Example for Object
 var calculator = {
@@ -281,7 +296,8 @@ calculator['subtraction'](1, 3) -> -2
 person.address = [
     { line1: 'Kukatpally', line2: 'Hyderabad'},
     { line1: 'Yousufguda', line2: 'Hyderabad' },
-    { line1: 'Ameerpet' }
+    { line1: 'Ameerpet' },
+	{ line3: '1/2/3'}
 ]
 
 Its not a mandatory that we should have keys for an item inside array
@@ -306,11 +322,10 @@ parseInt("10") -> 10 -> converts string to number
 parseInt("10.9") -> 10 -> it justs deletes the decimals and not performing round off
 parseFloat("10.9") -> 10.9 -> converts string to decimals
 
+Assume this is json, var person2 = { fn : "Karthik" , ln : "Kumar" }
 
-var x  = [ "fn => Karthik" , " ln => Kumar" ]
-
-var person2 = { fn : "Karthik" , ln : "Kumar" }
-
+need to generate array of below sample.
+var x  = [ "fn => Karthik" , "ln => Kumar" ]
 
 var x = [];
 for(var key in person2){
@@ -325,7 +340,7 @@ function person(firstName, lastName) {
 	console.log('Welcome to Demo, ' + firstName + lastName);
 }
 
-// handling params order
+// Advantages of passing object as input, handling params order
 function person(options) {
 	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
 }
