@@ -238,7 +238,6 @@ Printing an array
 // Approach 1
 for(var index = 0; index < students.length; index ++){
 	console.log('index is ' + index);
-	console.log('index is ' + index);
 	var student = students[index];
 	console.log(student);
 }
@@ -339,6 +338,8 @@ for(var key in person2){
 function person(firstName, lastName) {
 	console.log('Welcome to Demo, ' + firstName + lastName);
 }
+// Skipping first name
+person('', 'Kumar')
 
 // Advantages of passing object as input, handling params order
 function person(options) {
