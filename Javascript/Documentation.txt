@@ -353,7 +353,7 @@ function person(options) {
 	options.lastName = options.lastName || '';
 	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
 }
-person({ lastName: 'Reddy' }); 
+person({ lastName: 'Reddy' }); => Reddy
 
 
 // setting person to Guest User
@@ -363,6 +363,7 @@ function person(options) {
 	options.lastName = options.lastName || 'User';
 	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
 }
+person() => Guest User
 
 function person1( firstName, lastName){
 	return {
@@ -373,16 +374,16 @@ function person1( firstName, lastName){
 }
 person1('Arjun', 'Krishna').getFullName() -> ArjunKrishna
 
-function person2() {
-	return {
-		name: '',
-    	setName: function(value){
-			this.name = value;
-        },
-		getName: function(value) {
-			return this.name;
-		}
-	}
+var neha = {
+	name: 'Neha',
+	age: 20,
+	city: 'Hyderbad'
+}
+
+var prakash = {
+	name: 'Prakash',
+	age: 23,
+	city: 'Delhi'
 }
 
 var obj = person2();
@@ -425,6 +426,36 @@ obj2.welcome = function() { console.log('Welcome to Overided Demo')}
 obj2.welcome() => Welcome to Overided Demo
 
 
+var Student = function() {
+	return {
+		name: '',
+		age: '',
+		city: ''
+	}
+}
+var neha = new Student();
+var prakash = new Student();
+
+var Student2 = function(field_name, field_age, field_city) {
+	return {
+		name: field_name,
+		age: field_age,
+		city: field_city
+	}
+}
+var neha = new Student2('Neha', 20, 'Hyderabad');
+var prakash = new Student2('Prakash', 23, 'Delhi');
+
+var Student3 = function(options) {
+	return {
+		name: options.name,
+		age: options.age,
+		city: options.city
+	}
+}
+var neha = new Student3( { name: 'Neha', age: 20, city: 'Hyderabad'} );
+var prakash = new Student3( { name: 'Prakash', age: 23, city: 'Delhi'} );
+
 var Calculator = function(){
 	return {
 		add: function(x, y) {
@@ -435,6 +466,10 @@ var Calculator = function(){
 		}
 	}
 }
+
+var c1 = new Calculator();
+c1.add(10, 20) => 30
+c1.sub(10, 20) => -10
 
 var ScientifcCalculator  = function(){
 	var creditCardNumber = 123456;
